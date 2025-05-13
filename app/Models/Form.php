@@ -21,8 +21,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $district
  * @property string $mobile
  * @property string $gender
- * @property string $taluk
- * @property string $firca
  * @property string|null $spouse
  * @property string|null $h_members
  * @property string $type_of_households
@@ -46,7 +44,6 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $block
  * @property string|null $mcode
  * @property string $status
- * @property string|null $verified_by
  * @property Carbon $created_at
  * @property string|null $remarks
  * 
@@ -67,8 +64,6 @@ class Form extends Model
 		'district',
 		'mobile',
 		'gender',
-		'taluk',
-		'firca',
 		'spouse',
 		'h_members',
 		'type_of_households',
@@ -92,7 +87,6 @@ class Form extends Model
 		'block',
 		'mcode',
 		'status',
-		'verified_by',
 		'remarks'
 	];
 

@@ -22,6 +22,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $revenue
  * @property string $crop_season
  * @property string $livestocks
+ * @property string $taluk
+ * @property string $firka
+ * @property string $verified_by
  * @property string $sf_no
  * @property string $soil_type
  * @property string $land_to_benefit
@@ -59,6 +62,9 @@ class LandForm extends Model
 		'revenue',
 		'crop_season',
 		'livestocks',
+		'taluk',
+		'firka',
+		'verified_by',
 		'sf_no',
 		'soil_type',
 		'land_to_benefit',

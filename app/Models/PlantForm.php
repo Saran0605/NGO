@@ -22,7 +22,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $revenue
  * @property string $crop_season
  * @property string $livestocks
- * @property string $plantation
+ * @property string $plantaions
+ * @property string $taluk
+ * @property string $firka
+ * @property string $verified_by
  * @property string $sf_number
  * @property string $soil_type
  * @property string $land_to_benefit
@@ -63,7 +66,10 @@ class PlantForm extends Model
 		'revenue',
 		'crop_season',
 		'livestocks',
-		'plantation',
+		'plantaions',
+		'taluk',
+		'firka',
+		'verified_by',
 		'sf_number',
 		'soil_type',
 		'land_to_benefit',

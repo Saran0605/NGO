@@ -19,6 +19,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $irrigated_lands
  * @property string $revenue
  * @property string $livestocks
+ * @property string $taluk
+ * @property string $firka
+ * @property string $verified_by
  * @property string $crop_season
  * @property string $well_irrigation
  * @property string $sf_number
@@ -59,6 +62,9 @@ class PondForm extends Model
 		'irrigated_lands',
 		'revenue',
 		'livestocks',
+		'taluk',
+		'firka',
+		'verified_by',
 		'crop_season',
 		'well_irrigation',
 		'sf_number',
