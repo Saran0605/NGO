@@ -114,9 +114,9 @@ public function land_form(Request $req)
         $req->validate([
             // Basic Details
             'farmerName' => 'required',
-            'mobile' => 'required',
+            'mobileNumber' => 'required',
             'gender' => 'required',
-            'spouse' => 'required',
+            'fatherSpouse' => 'required',
             'hh_members' => 'required',
             'identityCard' => 'required',
             'idCardNumber' => 'required',
@@ -151,8 +151,8 @@ public function land_form(Request $req)
 
         
             // Land Development Activity
-            'sf_number' => 'required',
-            'land_to_benefit' => 'required',
+            'sf_no' => 'required',
+            'land_benefit' => 'required',
             'soil_type' => 'required',
             'inspection' => 'required',
             'approved_by' => 'required',
@@ -179,12 +179,12 @@ public function land_form(Request $req)
         $form->user_id = $req->user_id;
         $form->form_type = 'land';
         $form->farmer_name = $req->farmerName;
-        $form->mobile_number = $req->mobile;
+        $form->mobile_number = $req->mobileNumber;
         $form->gender = $req->gender;
-        $form->spouse = $req->spouse;
-        $form->h_members = implode(',', $req->hh_members);//[]
-        $form->id_type = $req->identityCard;
-        $form->id_number = $req->idCardNumber;
+        $form->father_spouse = $req->fatherSpouse;
+        $form->household_members = implode(',', $req->hh_members);//[]
+        $form->identity_card_type = $req->identityCard;
+        $form->identity_card_number = $req->idCardNumber;
         $form->hamlet = $req->hamlet;
         $form->panchayat = $req->panchayat;
         $form->block = $req->block;
@@ -197,7 +197,7 @@ public function land_form(Request $req)
         $form->drinking_water  = implode(',', $req->drinkingWater);
         $form->potability = implode(',', $req->potability);
         $form->domestic_water =  implode(',', $req->domesticWater);
-        $form->toilet_avail = $req->toilet;
+        $form->toilet_availability = $req->toilet;
         $form->toilet_cond = $req->toiletWorking;
         $form->household_education = $req->education;
         $form->age = $req->age;
@@ -227,18 +227,19 @@ public function land_form(Request $req)
 
 
 
-    $landForm->sf_number = $req->sf_number;
+    $landForm->sf_no = $req->sf_no;
     $landForm->soil_type = $req->soil_type;
-    $landForm->land_to_benefit = $req->land_to_benefit;
+    $landForm->land_benefit = $req->land_benefit;
     $landForm->field_insp = $req->inspection;
     $landForm->site_app = $req->approved_by;
     $landForm->date_of_ins = $req->inspection_date;
     $landForm->date_of_app = $req->approval_date;
-    $landForm->area_benefited = $req->areaBenefited;
-    $landForm->any_other_works = $req->otherWorks;
-    $landForm->p_contribution = $req->pradanContribution;
-    $landForm->f_contribution = $req->farmerContribution;
-    $landForm->total_est = $req->estimateAmount;
+    $landForm->type_of_work = implode(',', $req->workType); // Convert array to string
+    $landForm->area_benefit = $req->areaBenefited;
+    $landForm->other_works = $req->otherWorks;
+    $landForm->pradan_cont = $req->pradanContribution;
+    $landForm->farmer_cont = $req->farmerContribution;
+    $landForm->total_amount = $req->estimateAmount;
     $landForm->save();
 
         // Insert into `bank_details` table
@@ -263,10 +264,6 @@ public function land_form(Request $req)
         $fmbFile = $req->file('fmb');
         $fmbName = 'fmb_' . time() . '.' . $fmbFile->getClientOriginalExtension();
         $fmbFile->move(public_path('documents'), $fmbName);
-
-        $passbook_postfundingFile = $req->file('passbook_postfunding');
-        $passbook_postfundingName = 'passbook_postfunding_' . time() . '.' . $passbook_postfundingFile->getClientOriginalExtension();
-        $passbook_postfundingFile->move(public_path('documents'), $passbook_postfundingName);
         
         $photoFile = $req->file('photo_farmer');
         $photoName = 'photo_' . time() . '.' . $photoFile->getClientOriginalExtension();
@@ -282,7 +279,6 @@ public function land_form(Request $req)
         $fileUpload->patta    = $pattaName;
         $fileUpload->identity = $identityName;
         $fileUpload->fmb      = $fmbName;
-        $fileUpload->passbook_postfunding = $passbook_postfundingName;
         $fileUpload->photo    = $photoName;
         $fileUpload->passbook = $passbookName;
         $fileUpload->save();
@@ -302,9 +298,9 @@ public function land_form(Request $req)
         $validatedData = $req->validate([
             // Basic Details
             'farmerName' => 'required',
-            'mobile' => 'required',
+            'mobileNumber' => 'required',
             'gender' => 'required',
-            'spouse' => 'required',
+            'fatherSpouse' => 'required',
             'hh_members' => 'required',
             'identityCard' => 'required',
             'idCardNumber' => 'required',
@@ -339,8 +335,8 @@ public function land_form(Request $req)
  
          
              // Pond Development Activity
-             'sf_number' => 'required',
-             'land_to_benefit' => 'required',
+             'sf_no' => 'required',
+             'land_benefit' => 'required',
              'soil_type' => 'required',
              'inspection' => 'required',
              'approved_by' => 'required',
@@ -372,12 +368,12 @@ public function land_form(Request $req)
         $form->user_id = $req->user_id;
         $form->form_type = 'pond';
         $form->farmer_name = $req->farmerName;
-        $form->mobile_number = $req->mobile;
+        $form->mobile_number = $req->mobileNumber;
         $form->gender = $req->gender;
-        $form->spouse = $req->spouse;
-        $form->h_members = implode(',', $req->hh_members);//[]
-        $form->id_type = $req->identityCard;
-        $form->id_number = $req->idCardNumber;
+        $form->father_spouse = $req->fatherSpouse;
+        $form->household_members = implode(',', $req->hh_members);//[]
+        $form->identity_card_type = $req->identityCard;
+        $form->identity_card_number = $req->idCardNumber;
         $form->hamlet = $req->hamlet;
         $form->panchayat = $req->panchayat;
         $form->block = $req->block;
@@ -390,7 +386,7 @@ public function land_form(Request $req)
         $form->drinking_water  = implode(',', $req->drinkingWater);
         $form->potability = implode(',', $req->potability);
         $form->domestic_water =  implode(',', $req->domesticWater);
-        $form->toilet_avail = $req->toilet;
+        $form->toilet_availability = $req->toilet;
         $form->toilet_cond = $req->toiletWorking;
         $form->age = $req->age;
         $form->district = $req->district;
@@ -409,7 +405,7 @@ public function land_form(Request $req)
  // Insert into `land_form` table
  $pondForm = new PondForm();
  $pondForm->form_id = $form_id; // Foreign key reference
- $pondForm->ownership = $req->landOwnership;
+ $pondForm->land_owner = $req->landOwnership;
  $pondForm->patta = $req->pattaNumber;
  $pondForm->total_area = $req->totalArea;
  $pondForm->revenue = $req->revenueVillage;
@@ -417,26 +413,26 @@ public function land_form(Request $req)
  $pondForm->irrigated_lands = $req->irrigatedLand;
  $pondForm->crop_season = $req->cropSeason;
  $pondForm->area_irrigated = $req->area_irrigated;
- $pondForm->area_benefited = $req->areaBenefitted;
+ $pondForm->area_benefitted = $req->areaBenefitted;
 
  $pondForm->livestocks = implode(',', $req->livestock);
 
 
 
- $pondForm->sf_number = $req->sf_number;
+ $pondForm->sf_no = $req->sf_no;
  $pondForm->soil_type = $req->soil_type;
- $pondForm->land_serve = $req->land_to_benefit;
+ $pondForm->land_serve = $req->land_benefit;
  $pondForm->field_insp = $req->inspection;
- $pondForm->site_app = $req->approved_by;
- $pondForm->date_of_ins = $req->inspection_date;
- $pondForm->date_of_app = $req->approval_date;
+ $pondForm->site_appr = $req->approved_by;
+ $pondForm->date_of_insp = $req->inspection_date;
+ $pondForm->date_of_appr = $req->approval_date;
  $pondForm->length = $req->length;
  $pondForm->breadth = $req->breadth;
  $pondForm->depth = $req->depth;
  $pondForm->volume = $req->volume;
- $pondForm->p_contribution = $req->pradanContribution;
- $pondForm->f_contribution = $req->farmerContribution;
- $pondForm->total_est = $req->estimateAmount;
+ $pondForm->pradan_cont = $req->pradanContribution;
+ $pondForm->farmer_cont = $req->farmerContribution;
+ $pondForm->total = $req->estimateAmount;
  $pondForm->save();
 
 
@@ -463,10 +459,6 @@ $fmbFile = $req->file('fmb');
 $fmbName = 'fmb_' . time() . '.' . $fmbFile->getClientOriginalExtension();
 $fmbFile->move(public_path('documents'), $fmbName);
 
-$passbook_postfundingFile = $req->file('passbook_postfunding');
-$passbook_postfundingName = 'passbook_postfunding_' . time() . '.' . $passbook_postfundingFile->getClientOriginalExtension();
-$passbook_postfundingFile->move(public_path('documents'), $passbook_postfundingName);
-
 $photoFile = $req->file('photo_farmer');
 $photoName = 'photo_' . time() . '.' . $photoFile->getClientOriginalExtension();
 $photoFile->move(public_path('documents'), $photoName);
@@ -481,7 +473,6 @@ $fileUpload->form_id  = $form_id;
 $fileUpload->patta    = $pattaName;
 $fileUpload->identity = $identityName;
 $fileUpload->fmb      = $fmbName;
-$fileUpload->passbook_postfunding      = $passbook_postfundingName;
 $fileUpload->photo    = $photoName;
 $fileUpload->passbook = $passbookName;
 $fileUpload->save();
@@ -496,9 +487,9 @@ return response()->json(['status' => 200, 'message' => 'inserted succesfully']);
         $req->validate([
             // Basic Details
             'farmerName' => 'required',
-            'mobile' => 'required',
+            'mobileNumber' => 'required',
             'gender' => 'required',
-            'spouse' => 'required',
+            'fatherSpouse' => 'required',
             'hh_members' => 'required',
             'identityCard' => 'required',
             'idCardNumber' => 'required',
@@ -533,8 +524,8 @@ return response()->json(['status' => 200, 'message' => 'inserted succesfully']);
 
         
             // Land Development Activity
-            'sf_number' => 'required',
-            'land_to_benefit' => 'required',
+            'sf_no' => 'required',
+            'land_benefit' => 'required',
             'soil_type' => 'required',
             'inspection' => 'required',
             'approved_by' => 'required',
@@ -547,7 +538,7 @@ return response()->json(['status' => 200, 'message' => 'inserted succesfully']);
             'otherWorks' => 'required',
             'pradanContribution' => 'required',
             'farmerContribution' => 'required',
-            'plantaions'=>'required',
+            'plantation'=>'required',
         
             // Bank Details
             'account_holder' => 'required',
@@ -562,12 +553,12 @@ return response()->json(['status' => 200, 'message' => 'inserted succesfully']);
         $form->user_id = $req->user_id;
         $form->form_type = 'plant';
         $form->farmer_name = $req->farmerName;
-        $form->mobile_number = $req->mobile;
+        $form->mobile_number = $req->mobileNumber;
         $form->gender = $req->gender;
-        $form->spouse = $req->spouse;
-        $form->h_members = implode(',', $req->hh_members);//[]
-        $form->id_type = $req->identityCard;
-        $form->id_number = $req->idCardNumber;
+        $form->father_spouse = $req->fatherSpouse;
+        $form->household_members = implode(',', $req->hh_members);//[]
+        $form->identity_card_type = $req->identityCard;
+        $form->identity_card_number = $req->idCardNumber;
         $form->hamlet = $req->hamlet;
         $form->panchayat = $req->panchayat;
         $form->block = $req->block;
@@ -586,7 +577,7 @@ return response()->json(['status' => 200, 'message' => 'inserted succesfully']);
         $form->lat = $req->lat;
         $form->lon = $req->lon;
         $form->domestic_water =  implode(',', $req->domesticWater);
-        $form->toilet_avail = $req->toilet;
+        $form->toilet_availability = $req->toilet;
         $form->toilet_cond = $req->toiletWorking;
         $form->household_education = $req->education;
         $form->status = 1;
@@ -606,23 +597,24 @@ return response()->json(['status' => 200, 'message' => 'inserted succesfully']);
     $landForm->irrigated_lands = $req->irrigatedLand;
     $landForm->crop_season = $req->cropSeason;
     $landForm->livestocks = implode(',', $req->livestock);
-    $landForm->plantaions = implode(',', $req->plantaions);
+    $landForm->plantation = implode(',', $req->plantation);
 
 
 
 
-    $landForm->sf_number = $req->sf_number;
+    $landForm->sf_no = $req->sf_no;
     $landForm->soil_type = $req->soil_type;
-    $landForm->land_to_benefit = $req->land_to_benefit;
+    $landForm->land_benefit = $req->land_benefit;
     $landForm->field_insp = $req->inspection;
     $landForm->site_app = $req->approved_by;
     $landForm->date_of_ins = $req->inspection_date;
     $landForm->date_of_app = $req->approval_date;
-    $landForm->area_benefited = $req->areaBenefited;
-    $landForm->any_other_works = $req->otherWorks;
-    $landForm->p_contribution = $req->pradanContribution;
-    $landForm->f_contribution = $req->farmerContribution;
-    $landForm->total_est = $req->estimateAmount;
+    $landForm->type_of_work = implode(',', $req->workType); // Convert array to string
+    $landForm->area_benefit = $req->areaBenefited;
+    $landForm->other_works = $req->otherWorks;
+    $landForm->pradan_cont = $req->pradanContribution;
+    $landForm->farmer_cont = $req->farmerContribution;
+    $landForm->total_amount = $req->estimateAmount;
     
     $landForm->save();
 
@@ -650,10 +642,6 @@ $fmbFile = $req->file('fmb');
 $fmbName = 'fmb_' . time() . '.' . $fmbFile->getClientOriginalExtension();
 $fmbFile->move(public_path('documents'), $fmbName);
 
-$passbook_postfundingFile = $req->file('passbook_postfunding');
-$passbook_postfundingName = 'passbook_postfunding_' . time() . '.' . $passbook_postfundingFile->getClientOriginalExtension();
-$passbook_postfundingFile->move(public_path('documents'), $passbook_postfundingName);
-
 $photoFile = $req->file('photo_farmer');
 $photoName = 'photo_' . time() . '.' . $photoFile->getClientOriginalExtension();
 $photoFile->move(public_path('documents'), $photoName);
@@ -668,7 +656,6 @@ $fileUpload->form_id  = $form_id;
 $fileUpload->patta    = $pattaName;
 $fileUpload->identity = $identityName;
 $fileUpload->fmb      = $fmbName;
-$fileUpload->passbook_postfunding      = $passbook_postfundingName;
 $fileUpload->photo    = $photoName;
 $fileUpload->passbook = $passbookName;
 $fileUpload->save();
@@ -720,7 +707,7 @@ public function viewPFLand($id)
 
     if ($land) {
         return response()->json([
-            'area_benefited_postfunding' => $land->area_benefited_postfunding,
+            'area_pf' => $land->area_pf,
         ]);
     } else {
         return response()->json([], 404);
@@ -736,7 +723,7 @@ public function viewPFPond($id)
             'bre_pf' => $pond->bre_pf,
             'dep_pf' => $pond->dep_pf,
             'vol_pf' => $pond->vol_pf,
-            'area_benefited_postfunding' => $pond->area_benefited_postfunding,
+            'area_pf' => $pond->area_pf,
         ]);
     } else {
         return response()->json([], 404);
@@ -792,7 +779,7 @@ public function submit_pf_land(Request $request)
 
     landForm::where('form_id', $request->pf_land_id)
         ->update([
-            'area_benefited_postfunding' => $request->area_land
+            'area_pf' => $request->area_land
         ]);
         Form::where('id', $request->pf_land_id)
         ->update([
@@ -810,7 +797,7 @@ public function submit_pf_pond(Request $request)
         'breadth' => 'required',
         'depth' => 'required',
         'volume' => 'required',
-        'area_benefiteded' => 'required',
+        'area_benefited' => 'required',
     ]);
 
     PondForm::where('form_id', $request->pf_pond_id)
@@ -819,7 +806,7 @@ public function submit_pf_pond(Request $request)
             'bre_pf' => $request->breadth,
             'dep_pf' => $request->depth,
             'vol_pf' => $request->volume,
-            'area_benefited_postfunding' => $request->area_benefiteded
+            'area_pf' => $request->area_benefited
         ]);
         Form::where('id', $request->pf_pond_id)
         ->update([
@@ -853,7 +840,7 @@ public function submit_pf_plant(Request $request)
             'status' => 9
         ]);
 
-    return response()->json(['status' => 200, 'message' => 'plantaions Post-Funding details updated.']);
+    return response()->json(['status' => 200, 'message' => 'Plantation Post-Funding details updated.']);
 }
 
 }
