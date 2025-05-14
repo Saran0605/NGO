@@ -729,7 +729,7 @@
                     <!-- Row 10 -->
                     <div class="row border p-2 mb-3" style="border-radius: 8px; border: 1px solid #ddd; margin:2px;">
                         <div class="col-md-6 mb-3">
-                            <strong>Toilet Availability:</strong> <span id="f_toilet_avail"></span>
+                            <strong>Toilet Availability:</strong> <span id="f_toilet_availability"></span>
                         </div>
                         <div class="col-md-6 mb-3">
                             <strong>Toilet Condition:</strong> <span id="f_toilet_condition"></span>
@@ -872,7 +872,7 @@
                     <!-- Row 10 -->
                     <div class="row border p-2 mb-3" style="border-radius: 8px; border: 1px solid #ddd; margin:2px;">
                         <div class="col-md-6 mb-3">
-                            <strong>Toilet Availability:</strong> <span id="f_toilet_avail"></span>
+                            <strong>Toilet Availability:</strong> <span id="f_toilet_availability"></span>
                         </div>
                         <div class="col-md-6 mb-3">
                             <strong>Toilet Condition:</strong> <span id="f_toilet_condition"></span>
@@ -944,7 +944,7 @@
                             <strong>Patta No:</strong> <span id="plant_patta"></span>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <strong>total_est Area:</strong> <span id="plant_total_est_area"></span>
+                            <strong>Total Area:</strong> <span id="plant_total_area"></span>
                         </div>
                         <div class="col-md-6 mb-3">
                             <strong>Revenue Village:</strong> <span id="plant_revenue"></span>
@@ -962,7 +962,7 @@
                             <strong>Plantation Type:</strong> <span id="plant_type"></span>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <strong>SF No:</strong> <span id="plant_sf_number"></span>
+                            <strong>SF No:</strong> <span id="plant_sf_no"></span>
                         </div>
                         <div class="col-md-6 mb-3">
                             <strong>Soil Type:</strong> <span id="plant_soil_type"></span>
@@ -971,43 +971,43 @@
 
                     <div class="row border p-2 mb-3" style="border-radius: 8px; border: 1px solid #ddd; margin:2px;">
                         <div class="col-md-6 mb-3">
-                            <strong>Land to Benefit:</strong> <span id="plant_land_to_benefit"></span>
+                            <strong>Land to Benefit:</strong> <span id="plant_land_benefit"></span>
                         </div>
                         <div class="col-md-6 mb-3">
                             <strong>Field Inspection:</strong> <span id="plant_field_inspection"></span>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <strong>Site Approval:</strong> <span id="plant_site_appoval"></span>
+                            <strong>Site Approval:</strong> <span id="plant_site_approval"></span>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <strong>Date of Inspection:</strong> <span id="plant_date_of_insection"></span>
+                            <strong>Date of Inspection:</strong> <span id="plant_date_of_inspection"></span>
                         </div>
                     </div>
 
                     <div class="row border p-2 mb-3" style="border-radius: 8px; border: 1px solid #ddd; margin:2px;">
                         <div class="col-md-6 mb-3">
-                            <strong>Date of Approval:</strong> <span id="plant_date_of_appoval"></span>
+                            <strong>Date of Approval:</strong> <span id="plant_date_of_approval"></span>
                         </div>
                         <div class="col-md-6 mb-3">
                             <strong>Type of Work:</strong> <span id="plant_type_of_work"></span>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <strong>Area Benefit:</strong> <span id="plant_area_benefited"></span>
+                            <strong>Area Benefit:</strong> <span id="plant_area_benefit"></span>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <strong>Other Works:</strong> <span id="plant_any_other_works"></span>
+                            <strong>Other Works:</strong> <span id="plant_other_works"></span>
                         </div>
                     </div>
 
                     <div class="row border p-2 mb-3" style="border-radius: 8px; border: 1px solid #ddd; margin:2px;">
                         <div class="col-md-6 mb-3">
-                            <strong>Pradan Contribution:</strong> <span id="plant_p_contributionribution"></span>
+                            <strong>Pradan Contribution:</strong> <span id="plant_pradan_contribution"></span>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <strong>Farmer Contribution:</strong> <span id="plant_f_contributionribution"></span>
+                            <strong>Farmer Contribution:</strong> <span id="plant_farmer_contribution"></span>
                         </div>
                         <div class="col-md-6 mb-3">
-                            <strong>total_est Amount:</strong> <span id="plant_total_est_est"></span>
+                            <strong>Total Amount:</strong> <span id="plant_total_amount"></span>
                         </div>
                     </div>
 
@@ -1040,7 +1040,7 @@
 
                     <div class="row border p-2 mb-3" style="border-radius: 8px; border: 1px solid #ddd; margin:2px;">
                         <div class="col-md-6 mb-3">
-                            <strong>total_est Area:</strong> <span id="p_tarea"></span>
+                            <strong>Total Area:</strong> <span id="p_tarea"></span>
                         </div>
                         <div class="col-md-6 mb-3">
                             <strong>Irrigated Lands:</strong> <span id="p_irrigated_lands"></span>
@@ -1130,7 +1130,7 @@
 
                     <div class="row border p-2 mb-3" style="border-radius: 8px; border: 1px solid #ddd; margin:2px;">
                         <div class="col-md-6 mb-3">
-                            <strong>total_est:</strong> <span id="total_est"></span>
+                            <strong>Total:</strong> <span id="total"></span>
                         </div>
                     </div>
                 </div>
@@ -1387,7 +1387,7 @@
         })
 
 
-        $(document).on("click", "#farmer_detail", function(e) {
+         $(document).on("click", "#farmer_detail", function(e) {
             e.preventDefault();
             var form_id = $(this).val();
             $.ajax({
@@ -1414,7 +1414,7 @@
                         $("#f_drinking_water").text(response.data.drinking_water);
                         $("#f_potability").text(response.data.potability);
                         $("#f_domestic_water").text(response.data.domestic_water);
-                        $("#f_toilet_avail").text(response.data.toilet_avail);
+                        $("#f_toilet_availability").text(response.data.toilet_avail;
                         $("#f_toilet_condition").text(response.data.toilet_cond);
                         $("#f_house_owner").text(response.data.house_owner);
                         $("#f_household_education").text(response.data.household_education);
@@ -1443,9 +1443,9 @@
                         $("#l_area_irrigated").text(response.data.area_irrigated); // Newly added
                         $("#l_irrigated_lands").text(response.data.irrigated_lands); // Newly added
                         $("#l_patta").text(response.data.patta);
-                        $("#l_tarea").text(response.data.total_est_area);
+                        $("#l_tarea").text(response.data.total_area);
                         $("#l_revenue").text(response.data.revenue);
-                        $("#l_sf").text(response.data.sf_number);
+                        $("#l_sf").text(response.data.sf_no);
                         $("#l_soil").text(response.data.soil_type);
                         $("#l_benefit").text(response.data.land_to_benefit);
                         $("#l_field").text(response.data.field_insp);
@@ -1457,7 +1457,7 @@
                         $("#l_oth").text(response.data.any_other_works);
                         $("#l_pradan").text(response.data.p_contribution);
                         $("#l_farmer").text(response.data.f_contribution);
-                        $("#l_total_est").text(response.data.total_est_est);
+                        $("#l_total").text(response.data.total_est);
 
                         $("#landdet_modal").modal("show");
 
@@ -1505,7 +1505,7 @@
                     if (response.status == 200) {
                         $("#p_owner").text(response.data.ownership);
                         $("#p_patta").text(response.data.patta);
-                        $("#p_tarea").text(response.data.total_est_area);
+                        $("#p_tarea").text(response.data.total_area);
                         $("#p_irrigated_lands").text(response.data.irrigated_lands); // Newly added
                         $("#p_revenue").text(response.data.revenue);
                         $("#p_livestock").text(response.data.livestocks); // Newly added
@@ -1513,7 +1513,7 @@
                         $("#p_well_irrigation").text(response.data.well_irrigation); // Newly added
                         $("#p_sf").text(response.data.sf_number);
                         $("#p_soil").text(response.data.soil_type);
-                        $("#p_land").text(response.data.land_serve);
+                        $("#p_land").text(response.data.land_to_benefit);
                         $("#p_field").text(response.data.field_insp);
                         $("#p_site").text(response.data.site_app);
                         $("#p_type_of_work").text(response.data.type_of_work); // Newly added
@@ -1525,7 +1525,7 @@
                         $("#p_vol").text(response.data.volume);
                         $("#p_pcont").text(response.data.p_contribution);
                         $("#p_fcont").text(response.data.f_contribution);
-                        $("#total_est").text(response.data.total_est);
+                        $("#total").text(response.data.total_est);
 
                         $("#ponddet_modal").modal("show");
 
@@ -1553,24 +1553,24 @@
                     $("#plant_area_irrigated").text(response.data.area_irrigated);
                     $("#plant_irrigated_lands").text(response.data.irrigated_lands);
                     $("#plant_patta").text(response.data.patta);
-                    $("#plant_total_est_area").text(response.data.total_est_area);
+                    $("#plant_total_area").text(response.data.total_area);
                     $("#plant_revenue").text(response.data.revenue);
                     $("#plant_crop_season").text(response.data.crop_season);
                     $("#plant_livestock").text(response.data.livestocks);
-                    $("#plant_type").text(response.data.plantation);
-                    $("#plant_sf_number").text(response.data.sf_number);
+                    $("#plant_type").text(response.data.plantations);
+                    $("#plant_sf_no").text(response.data.sf_number);
                     $("#plant_soil_type").text(response.data.soil_type);
-                    $("#plant_land_to_benefit").text(response.data.land_to_benefit);
+                    $("#plant_land_benefit").text(response.data.land_to_benefit);
                     $("#plant_field_inspection").text(response.data.field_insp);
-                    $("#plant_site_appoval").text(response.data.site_app);
-                    $("#plant_date_of_insection").text(response.data.date_of_ins);
-                    $("#plant_date_of_appoval").text(response.data.date_of_app);
+                    $("#plant_site_approval").text(response.data.site_app);
+                    $("#plant_date_of_inspection").text(response.data.date_of_ins);
+                    $("#plant_date_of_approval").text(response.data.date_of_app);
                     $("#plant_type_of_work").text(response.data.type_of_work);
-                    $("#plant_area_benefited").text(response.data.area_benefited);
-                    $("#plant_any_other_works").text(response.data.any_other_works);
-                    $("#plant_p_contributionribution").text(response.data.p_contribution);
-                    $("#plant_f_contributionribution").text(response.data.f_contribution);
-                    $("#plant_total_est_est").text(response.data.total_est_est);
+                    $("#plant_area_benefit").text(response.data.area_benefited);
+                    $("#plant_other_works").text(response.data.any_other_works);
+                    $("#plant_pradan_contribution").text(response.data.p_contribution);
+                    $("#plant_farmer_contribution").text(response.data.f_contribution);
+                    $("#plant_total_amount").text(response.data.total_est);
 
                     $("#plantdet_modal").modal("show");
                 }

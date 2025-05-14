@@ -27,7 +27,7 @@ class tlController extends Controller
 {
     $userId = session()->get('user_id');
 
-    $total_estSubmitted = DB::table('forms')
+    $totalSubmitted = DB::table('forms')
         ->whereIn('status', [1])
         ->count();
 
@@ -46,7 +46,7 @@ class tlController extends Controller
         ->where('status', 11)
         ->count();
 
-    return view('tl.tldash', compact('total_estSubmitted', 'approved', 'changeupdate', 'completed'));
+    return view('tl.tldash', compact('totalSubmitted', 'approved', 'changeupdate', 'completed'));
 }
 
     public function fetch_appl_tl1(){
@@ -95,7 +95,7 @@ class tlController extends Controller
 
             // Land Ownership
             'pattaNumber' => 'required',
-            'total_estArea' => 'required',
+            'totalArea' => 'required',
             'revenueVillage' => 'required',
             'landOwnership'=> 'required',
             'wellIrrigation'=> 'required',
@@ -108,7 +108,7 @@ class tlController extends Controller
 
         
             // Land Development Activity
-            'sf_number' => 'required',
+            'sf_no' => 'required',
             'land_benefit' => 'required',
             'soil_type' => 'required',
             'inspection' => 'required',
@@ -140,8 +140,8 @@ class tlController extends Controller
         $form->gender = $req->gender;
         $form->spouse = $req->fatherSpouse;
         $form->h_members = implode(',', $req->hh_members);//[]
-        $form->identity_card_type = $req->identityCard;
-        $form->identity_card_number = $req->idCardNumber;
+        $form->id_type = $req->identityCard;
+        $form->id_number = $req->idCardNumber;
         $form->hamlet = $req->hamlet;
         $form->panchayat = $req->panchayat;
         $form->block = $req->block;
@@ -159,7 +159,8 @@ class tlController extends Controller
         $form->household_education = $req->education;
         $form->age = $req->age;
         $form->district = $req->district;
-        
+        $form->taluk = $req->taluk;
+        $form->firca = $req->firca;
         $form->lat = $req->lat;
         $form->lon = $req->lon;
         $form->status = 4;
@@ -173,31 +174,29 @@ class tlController extends Controller
     $landForm->form_id = $form_id; // Foreign key reference
     $landForm->ownership = $req->landOwnership;
     $landForm->patta = $req->pattaNumber;
-    $landForm->total_est_area = $req->total_estArea;
+    $landForm->total_area = $req->totalArea;
     $landForm->revenue = $req->revenueVillage;
     $landForm->well_irrigation = $req->wellIrrigation;
     $landForm->area_irrigated = $req->areaIrrigated;
     $landForm->irrigated_lands = $req->irrigatedLand;
     $landForm->crop_season = $req->cropSeason;
     $landForm->livestocks = implode(',', $req->livestock);
-    $landForm->taluk = $req->taluk;
-    $landForm->firka = $req->firca;
 
 
 
-    $landForm->sf_number = $req->sf_number;
+    $landForm->sf_number = $req->sf_no;
     $landForm->soil_type = $req->soil_type;
-    $landForm->land_benefit = $req->land_benefit;
+    $landForm->land_to_benefit = $req->land_benefit;
     $landForm->field_insp = $req->inspection;
     $landForm->site_app = $req->approved_by;
     $landForm->date_of_ins = $req->inspection_date;
     $landForm->date_of_app = $req->approval_date;
     $landForm->type_of_work = implode(',', $req->workType); // Convert array to string
-    $landForm->area_benefit = $req->areaBenefited;
-    $landForm->any_any_other_works = $req->otherWorks;
+    $landForm->area_benefited = $req->areaBenefited;
+    $landForm->any_other_works = $req->otherWorks;
     $landForm->p_contribution = $req->pradanContribution;
     $landForm->f_contribution = $req->farmerContribution;
-    $landForm->total_est_est = $req->estimateAmount;
+    $landForm->total_est = $req->estimateAmount;
     $landForm->save();
 
         // Insert into `bank_details` table
@@ -281,7 +280,7 @@ class tlController extends Controller
 
              // Pond Ownership
              'pattaNumber' => 'required',
-             'total_estArea' => 'required',
+             'totalArea' => 'required',
              'revenueVillage' => 'required',
              'landOwnership'=> 'required',
              'wellIrrigation'=> 'required',
@@ -293,7 +292,7 @@ class tlController extends Controller
  
          
              // Pond Development Activity
-             'sf_number' => 'required',
+             'sf_no' => 'required',
              'land_benefit' => 'required',
              'soil_type' => 'required',
              'inspection' => 'required',
@@ -330,8 +329,8 @@ class tlController extends Controller
         $form->gender = $req->gender;
         $form->spouse = $req->fatherSpouse;
         $form->h_members = implode(',', $req->hh_members);//[]
-        $form->identity_card_type = $req->identityCard;
-        $form->identity_card_number = $req->idCardNumber;
+        $form->id_type = $req->identityCard;
+        $form->id_number = $req->idCardNumber;
         $form->hamlet = $req->hamlet;
         $form->panchayat = $req->panchayat;
         $form->block = $req->block;
@@ -348,6 +347,8 @@ class tlController extends Controller
         $form->toilet_cond = $req->toiletWorking;
         $form->age = $req->age;
         $form->district = $req->district;
+        $form->taluk = $req->taluk;
+        $form->firca = $req->firca;
         $form->lat = $req->lat;
         $form->lon = $req->lon;
         $form->household_education = $req->education;
@@ -363,21 +364,19 @@ class tlController extends Controller
  $pondForm->form_id = $form_id; // Foreign key reference
  $pondForm->ownership = $req->landOwnership;
  $pondForm->patta = $req->pattaNumber;
- $pondForm->total_est_area = $req->total_estArea;
+ $pondForm->total_area = $req->totalArea;
  $pondForm->revenue = $req->revenueVillage;
  $pondForm->well_irrigation = $req->wellIrrigation;
  $pondForm->irrigated_lands = $req->irrigatedLand;
  $pondForm->crop_season = $req->cropSeason;
  $pondForm->area_irrigated = $req->area_irrigated;
  $pondForm->area_benefited = $req->areaBenefitted;
- $pondForm->taluk = $req->taluk;
-        $pondForm->firka = $req->firca;
 
  $pondForm->livestocks = implode(',', $req->livestock);
 
 
 
- $pondForm->sf_number = $req->sf_number;
+ $pondForm->sf_number = $req->sf_no;
  $pondForm->soil_type = $req->soil_type;
  $pondForm->land_to_benefit = $req->land_benefit;
  $pondForm->field_insp = $req->inspection;
@@ -469,7 +468,7 @@ return response()->json(['status' => 200, 'message' => 'inserted succesfully']);
 
             // Land Ownership
             'pattaNumber' => 'required',
-            'total_estArea' => 'required',
+            'totalArea' => 'required',
             'revenueVillage' => 'required',
             'landOwnership'=> 'required',
             'wellIrrigation'=> 'required',
@@ -482,7 +481,7 @@ return response()->json(['status' => 200, 'message' => 'inserted succesfully']);
 
         
             // Land Development Activity
-            'sf_number' => 'required',
+            'sf_no' => 'required',
             'land_benefit' => 'required',
             'soil_type' => 'required',
             'inspection' => 'required',
@@ -496,7 +495,7 @@ return response()->json(['status' => 200, 'message' => 'inserted succesfully']);
             'otherWorks' => 'required',
             'pradanContribution' => 'required',
             'farmerContribution' => 'required',
-            'plantaions'=>'required',
+            'plantation'=>'required',
         
             // Bank Details
             'account_holder' => 'required',
@@ -515,8 +514,8 @@ return response()->json(['status' => 200, 'message' => 'inserted succesfully']);
         $form->gender = $req->gender;
         $form->spouse = $req->fatherSpouse;
         $form->h_members = implode(',', $req->hh_members);//[]
-        $form->identity_card_type = $req->identityCard;
-        $form->identity_card_number = $req->idCardNumber;
+        $form->id_type = $req->identityCard;
+        $form->id_number = $req->idCardNumber;
         $form->hamlet = $req->hamlet;
         $form->panchayat = $req->panchayat;
         $form->block = $req->block;
@@ -530,7 +529,8 @@ return response()->json(['status' => 200, 'message' => 'inserted succesfully']);
         $form->potability = implode(',', $req->potability);
         $form->age = $req->age;
         $form->district = $req->district;
-      
+        $form->taluk = $req->taluk;
+        $form->firca = $req->firca;
         $form->lat = $req->lat;
         $form->lon = $req->lon;
         $form->domestic_water =  implode(',', $req->domesticWater);
@@ -547,33 +547,31 @@ return response()->json(['status' => 200, 'message' => 'inserted succesfully']);
     $landForm->form_id = $form_id; // Foreign key reference
     $landForm->ownership = $req->landOwnership;
     $landForm->patta = $req->pattaNumber;
-    $landForm->total_est_area = $req->total_estArea;
+    $landForm->total_area = $req->totalArea;
     $landForm->revenue = $req->revenueVillage;
     $landForm->well_irrigation = $req->wellIrrigation;
     $landForm->area_irrigated = $req->areaIrrigated;
     $landForm->irrigated_lands = $req->irrigatedLand;
     $landForm->crop_season = $req->cropSeason;
     $landForm->livestocks = implode(',', $req->livestock);
-    $landForm->plantaions = implode(',', $req->plantaions);
-    $landForm->taluk = $req->taluk;
-    $landForm->firka = $req->firca;
+    $landForm->plantations = implode(',', $req->plantation);
 
 
 
 
-    $landForm->sf_number = $req->sf_number;
+    $landForm->sf_number = $req->sf_no;
     $landForm->soil_type = $req->soil_type;
-    $landForm->land_benefit = $req->land_benefit;
+    $landForm->land_to_benefit = $req->land_benefit;
     $landForm->field_insp = $req->inspection;
     $landForm->site_app = $req->approved_by;
     $landForm->date_of_ins = $req->inspection_date;
     $landForm->date_of_app = $req->approval_date;
     $landForm->type_of_work = implode(',', $req->workType); // Convert array to string
-    $landForm->area_benefit = $req->areaBenefited;
-    $landForm->any_any_other_works = $req->otherWorks;
+    $landForm->area_benefited = $req->areaBenefited;
+    $landForm->any_other_works = $req->otherWorks;
     $landForm->p_contribution = $req->pradanContribution;
     $landForm->f_contribution = $req->farmerContribution;
-    $landForm->total_est_est = $req->estimateAmount;
+    $landForm->total_est = $req->estimateAmount;
     
     $landForm->save();
 

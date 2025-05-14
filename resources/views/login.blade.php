@@ -108,7 +108,7 @@
                     if(response.status==200){
                         Swal.fire({
                             title: "Success!",
-                            text: response.role + " login",
+                            text:"login Succesful",
                             icon: "success",
                             confirmButtonText: "OK"
                         });
