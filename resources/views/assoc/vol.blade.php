@@ -165,7 +165,7 @@
                                     <div class="card card-tale">
                                         <div class="card-body">
                                             <p class="mb-4">Applications Submitted</p>
-                                            <p class="fs-30 mb-2 ">{{$totalSubmitted}}</p>
+                                            <p class="fs-30 mb-2 ">{{$total_estSubmitted}}</p>
                                             <p></p>
                                         </div>
                                     </div>
