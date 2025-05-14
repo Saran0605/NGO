@@ -27,7 +27,7 @@ class fmController extends Controller
 {
     $userId = session()->get('user_id');
 
-    $totalSubmitted = DB::table('forms')
+    $total_estSubmitted = DB::table('forms')
         ->where('user_id', $userId)
         ->whereIn('status', [4])
         ->count();
@@ -47,7 +47,7 @@ class fmController extends Controller
         ->where('status', 9)
         ->count();
 
-    return view('fm.fmdash', compact('totalSubmitted', 'acceptedByTLorCoord', 'changeupdate', 'completed'));
+    return view('fm.fmdash', compact('total_estSubmitted', 'acceptedByTLorCoord', 'changeupdate', 'completed'));
 }
 
 
