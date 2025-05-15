@@ -2248,7 +2248,7 @@
                         $("#f_drinking_water").text(response.data.drinking_water);
                         $("#f_potability").text(response.data.potability);
                         $("#f_domestic_water").text(response.data.domestic_water);
-                        $("#f_toilet_availability").text(response.data.toilet_avail;
+                        $("#f_toilet_availability").text(response.data.toilet_avail);
                         $("#f_toilet_condition").text(response.data.toilet_cond);
                         $("#f_house_owner").text(response.data.house_owner);
                         $("#f_household_education").text(response.data.household_education);
@@ -2432,6 +2432,9 @@
                             icon: "success",
                             confirmButtonText: "OK"
                         });
+                         $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");
                     } else {
                         Swal.fire({
                             title: "Error!",
@@ -2474,6 +2477,9 @@
                             confirmButtonText: "OK"
                         });
                         $('#rem_modal').modal('hide');
+                         $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");
                     } else {
                         Swal.fire({
                             title: "Error!",
@@ -2913,8 +2919,9 @@
                     if (response.success) {
                         alert(response.message);
                         $('#edit_bankdet_modal').modal('hide');
-                        // Optionally refresh table or data
-                    } else {
+ $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");                    } else {
                         alert("Update failed: " + response.message);
                     }
                 },
@@ -2967,6 +2974,9 @@
                         confirmButtonText: "OK"
                     });
                     $('#edit_farmerdet_modal').modal('hide');
+                     $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");
                     // Optionally reload table or page
                 }
             });
@@ -2995,8 +3005,9 @@
                         });
                         $('#editponddet_modal_2').modal('hide');
                         // Optionally reload table or page
-                        location.reload();
-                    },
+ $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");                    },
                     error: function(xhr) {
                         // Show error
                         Swal.fire({
@@ -3031,8 +3042,9 @@
                             confirmButtonText: "OK"
                         });
                         $("#editplantdet_modal").modal("hide");
-                        location.reload(); // or update table dynamically
-                    } else {
+ $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");                    } else {
                         Swal.fire({
                             title: "Error!",
                             text: "Failed to update",
@@ -3069,8 +3081,9 @@
                         confirmButtonText: "OK"
                     });
                     $("#editlanddet_modal").modal("hide");
-                    location.reload(); // or refresh the table
-                },
+ $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");                },
                 error: function(xhr) {
                     Swal.fire({
                         title: "Error!",

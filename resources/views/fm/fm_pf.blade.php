@@ -1628,6 +1628,9 @@
                         icon: "success",
                         confirmButtonText: "OK"
                     });
+                     $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");
 
                 } else {
                     Swal.fire({
@@ -1670,6 +1673,9 @@
                     });
                     $("#mcode_modal").modal("hide");
                     $('#mcode_form')[0].reset();
+                     $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");
 
 
 

@@ -1631,6 +1631,9 @@
                             confirmButtonText: "OK"
                         });
                         $('#rem_modal').modal('hide');
+                         $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");
                     } else {
                         Swal.fire({
                             title: "Error!",
@@ -1756,6 +1759,9 @@
                         $("#mcode").val(response.mcode).prop('disabled', true);
                         $("#mcode_form button[type='submit']").hide();
                         $("#mcode_modal .modal-footer").append('<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>');
+                         $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");
                     } else {
                         // If no MCODE, enable input for new entry
                         $("#mcode").val('').prop('disabled', false);
@@ -1795,6 +1801,9 @@
                             icon: "success",
                             confirmButtonText: "OK"
                         });
+                         $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");
                     } else {
                         Swal.fire({
                             title: "Error!",
@@ -1916,6 +1925,9 @@
                             alert("MCODE updated successfully!");
                             $('#mcode_modal').modal('hide');
                             $(`#mcode_btn_${form.get('mcode_form_id')}`).prop('disabled', true).css('opacity', '0.6');
+                             $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");
                         } else {
                             alert(response.message || "Error updating MCODE");
                         }
@@ -1943,8 +1955,9 @@
                         success: function(response) {
                             if (response.status == 200) {
                                 alert("PF approved successfully!");
-                                location.reload();
-                            } else {
+ $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");                            } else {
                                 alert(response.message || "Error approving PF");
                             }
                         },
