@@ -572,7 +572,7 @@ return response()->json(['status' => 200, 'message' => 'inserted succesfully']);
      $landForm->taluk = $req->taluk;
         $landForm->firka = $req->firca;
     $landForm->livestocks = implode(',', $req->livestock);
-    $landForm->plantations = implode(',', $req->plantation);
+    $landForm->plantaions = implode(',', $req->plantation);
 
 
 
@@ -584,8 +584,7 @@ return response()->json(['status' => 200, 'message' => 'inserted succesfully']);
     $landForm->site_app = $req->approved_by;
     $landForm->date_of_ins = $req->inspection_date;
     $landForm->date_of_app = $req->approval_date;
-    $landForm->type_of_work = implode(',', $req->workType); // Convert array to string
-    $landForm->area_benefited = $req->areaBenefited;
+    $landForm->area_benefited_by_proposal = $req->areaBenefited;
     $landForm->any_other_works = $req->otherWorks;
     $landForm->p_contribution = $req->pradanContribution;
     $landForm->f_contribution = $req->farmerContribution;
@@ -739,31 +738,7 @@ $form3 = Form::where('form_type', 'plant')
     return response()->json(["status"=>200,"message"=>"done"]);
 }
 
-public function measure_submit(Request $req){
-    $req->validate([
-        'meas_id' => 'required',
-        'length' => 'required',
-        'breadth' => 'required',
-        'depth' => 'required',
-        'volume' => 'required',
-    ]);
 
-    // Create a new Measurement entry
-    $measurement = new Measurement();
-    $measurement->form_id = $req->meas_id;
-    $measurement->len = $req->length;
-    $measurement->bre = $req->breadth;
-    $measurement->dep = $req->depth;
-    $measurement->vol = $req->volume;
-    $measurement->save();
-
-    Form::where('id', $req->meas_id)->update(['status' => 3]);
-
-
-    return response()->json(["status"=>200,"message"=>"done"]);
-
-
-}
 public function getDocument(Request $request)
 {
     $form_id = $request->form_id;

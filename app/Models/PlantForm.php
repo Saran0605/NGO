@@ -35,7 +35,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $date_of_app
  * @property string|null $area_benefited_by_proposal
  * @property string|null $any_other_works
- * @property string|null $p_cont
+ * @property string|null $p_contribution
  * @property string|null $f_contribution
  * @property string|null $total_est
  * @property string|null $nos
@@ -79,7 +79,7 @@ class PlantForm extends Model
 		'date_of_app',
 		'area_benefited_by_proposal',
 		'any_other_works',
-		'p_cont',
+		'p_contribution',
 		'f_contribution',
 		'total_est',
 		'nos',
