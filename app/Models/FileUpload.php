@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $geotag
  * @property string $patta
  * @property string $fmb
+ * @property string|null $passbook_postfunding
  * @property string $photo
  * @property string $passbook
  *
@@ -33,6 +34,7 @@ class FileUpload extends Model
 		'geotag',
 		'patta',
 		'fmb',
+		'passbook_postfunding',
 		'photo',
 		'passbook'
 	];

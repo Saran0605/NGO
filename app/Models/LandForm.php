@@ -18,24 +18,27 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $area_irrigated
  * @property string $irrigated_lands
  * @property string $patta
- * @property string $total_area
+ * @property string|null $total_area
  * @property string $revenue
  * @property string $crop_season
  * @property string $livestocks
- * @property string $sf_no
+ * @property string $taluk
+ * @property string $firka
+ * @property string|null $verified_by
+ * @property string|null $sf_number
  * @property string $soil_type
- * @property string $land_benefit
+ * @property string|null $land_to_benefit
  * @property string $field_insp
  * @property string $site_app
  * @property string $date_of_ins
  * @property string $date_of_app
  * @property string $type_of_work
- * @property string $area_benefit
- * @property string $other_works
- * @property string $pradan_cont
- * @property string $farmer_cont
- * @property string $total_amount
- * @property string|null $area_pf
+ * @property string $area_benefited
+ * @property string $any_other_works
+ * @property string $p_contribution
+ * @property string $f_contribution
+ * @property string $total_est
+ * @property string|null $area_benefited_postfunding
  *
  * @package App\Models
  */
@@ -59,19 +62,22 @@ class LandForm extends Model
 		'revenue',
 		'crop_season',
 		'livestocks',
-		'sf_no',
+		'taluk',
+		'firka',
+		'verified_by',
+		'sf_number',
 		'soil_type',
-		'land_benefit',
+		'land_to_benefit',
 		'field_insp',
 		'site_app',
 		'date_of_ins',
 		'date_of_app',
 		'type_of_work',
-		'area_benefit',
-		'other_works',
-		'pradan_cont',
-		'farmer_cont',
-		'total_amount',
-		'area_pf'
+		'area_benefited',
+		'any_other_works',
+		'p_contribution',
+		'f_contribution',
+		'total_est',
+		'area_benefited_postfunding'
 	];
 }

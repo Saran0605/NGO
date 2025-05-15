@@ -1415,31 +1415,31 @@
             success: function(response) {
                 if (response.status == 200) {
                     console.log(response.data);
-                    $("#f_name").text(response.data.farmer_name);
-                    $("#f_spouse").text(response.data.father_spouse);
-                    $("#f_mobile").text(response.data.mobile_number);
-                    $("#f_gender").text(response.data.gender);
-                    $("#f_card").text(response.data.identity_card_type);
-                    $("#f_member").text(response.data.household_members);
-                    $("#f_number").text(response.data.identity_card_number);
-                    $("#f_hamlet").text(response.data.hamlet);
-                    $("#f_panchayat").text(response.data.panchayat);
-                    $("#f_block").text(response.data.block);
-                    $("#f_household_type").text(response.data.type_of_households);
-                    $("#f_special_category").text(response.data.special_catog);
-                    $("#f_caste").text(response.data.caste);
-                    $("#f_occupation").text(response.data.hh_occupation);
-                    $("#f_house_type").text(response.data.type_of_house);
-                    $("#f_drinking_water").text(response.data.drinking_water);
-                    $("#f_potability").text(response.data.potability);
-                    $("#f_domestic_water").text(response.data.domestic_water);
-                    $("#f_toilet_availability").text(response.data.toilet_availability);
-                    $("#f_toilet_condition").text(response.data.toilet_cond);
-                    $("#f_house_owner").text(response.data.house_owner);
-                    $("#f_household_education").text(response.data.household_education);
-                    $("#f_latitude").text(response.data.lat);
-                    $("#f_longitude").text(response.data.lon);
-                    $("#f_mcode").text(response.data.mcode);
+                   $("#f_name").text(response.data.farmer_name);
+                        $("#f_spouse").text(response.data.spouse);
+                        $("#f_mobile").text(response.data.mobile);
+                        $("#f_gender").text(response.data.gender);
+                        $("#f_card").text(response.data.id_type);
+                        $("#f_member").text(response.data.h_members);
+                        $("#f_number").text(response.data.id_number);
+                        $("#f_hamlet").text(response.data.hamlet);
+                        $("#f_panchayat").text(response.data.panchayat);
+                        $("#f_block").text(response.data.block);
+                        $("#f_household_type").text(response.data.type_of_households);
+                        $("#f_special_category").text(response.data.special_catog);
+                        $("#f_caste").text(response.data.caste);
+                        $("#f_occupation").text(response.data.hh_occupation);
+                        $("#f_house_type").text(response.data.type_of_house);
+                        $("#f_drinking_water").text(response.data.drinking_water);
+                        $("#f_potability").text(response.data.potability);
+                        $("#f_domestic_water").text(response.data.domestic_water);
+                        $("#f_toilet_availability").text(response.data.toilet_avail;
+                        $("#f_toilet_condition").text(response.data.toilet_cond);
+                        $("#f_house_owner").text(response.data.house_owner);
+                        $("#f_household_education").text(response.data.household_education);
+                        $("#f_latitude").text(response.data.lat);
+                        $("#f_longitude").text(response.data.lon);
+                        $("#f_mcode").text(response.data.mcode);
 
                     $("#farmerdet_modal").modal("show");
                 }
@@ -1457,28 +1457,28 @@
             url: `/fetch_land_det/${form_id}`,
             success: function(response) {
                 if (response.status == 200) {
-                    $("#l_ownership").text(response.data.ownership);
-                    $("#l_well_irrigation").text(response.data.well_irrigation); // Newly added
-                    $("#l_area_irrigated").text(response.data.area_irrigated); // Newly added
-                    $("#l_irrigated_lands").text(response.data.irrigated_lands); // Newly added
-                    $("#l_patta").text(response.data.patta);
-                    $("#l_tarea").text(response.data.total_area);
-                    $("#l_revenue").text(response.data.revenue);
-                    $("#l_sf").text(response.data.sf_no);
-                    $("#l_soil").text(response.data.soil_type);
-                    $("#l_benefit").text(response.data.land_benefit);
-                    $("#l_field").text(response.data.field_insp);
-                    $("#l_site").text(response.data.site_app);
-                    $("#l_doi").text(response.data.date_of_ins);
-                    $("#l_doa").text(response.data.date_of_app);
-                    $("#l_type").text(response.data.type_of_work);
-                    $("#l_area").text(response.data.area_benefit);
-                    $("#l_oth").text(response.data.other_works);
-                    $("#l_pradan").text(response.data.pradan_cont);
-                    $("#l_farmer").text(response.data.farmer_cont);
-                    $("#l_total").text(response.data.total_amount);
+                   $("#l_ownership").text(response.data.ownership);
+                        $("#l_well_irrigation").text(response.data.well_irrigation); // Newly added
+                        $("#l_area_irrigated").text(response.data.area_irrigated); // Newly added
+                        $("#l_irrigated_lands").text(response.data.irrigated_lands); // Newly added
+                        $("#l_patta").text(response.data.patta);
+                        $("#l_tarea").text(response.data.total_area);
+                        $("#l_revenue").text(response.data.revenue);
+                        $("#l_sf").text(response.data.sf_no);
+                        $("#l_soil").text(response.data.soil_type);
+                        $("#l_benefit").text(response.data.land_to_benefit);
+                        $("#l_field").text(response.data.field_insp);
+                        $("#l_site").text(response.data.site_app);
+                        $("#l_doi").text(response.data.date_of_ins);
+                        $("#l_doa").text(response.data.date_of_app);
+                        $("#l_type").text(response.data.type_of_work);
+                        $("#l_area").text(response.data.area_benefited);
+                        $("#l_oth").text(response.data.any_other_works);
+                        $("#l_pradan").text(response.data.p_contribution);
+                        $("#l_farmer").text(response.data.f_contribution);
+                        $("#l_total").text(response.data.total_est);
 
-                    $("#landdet_modal").modal("show");
+                        $("#landdet_modal").modal("show");
 
                 }
             }
@@ -1522,31 +1522,31 @@
             success: function(response) {
                 console.log(response);
                 if (response.status == 200) {
-                    $("#p_owner").text(response.data.land_owner);
-                    $("#p_patta").text(response.data.patta);
-                    $("#p_tarea").text(response.data.total_area);
-                    $("#p_irrigated_lands").text(response.data.irrigated_lands); // Newly added
-                    $("#p_revenue").text(response.data.revenue);
-                    $("#p_livestock").text(response.data.livestocks); // Newly added
-                    $("#p_crop_season").text(response.data.crop_season); // Newly added
-                    $("#p_well_irrigation").text(response.data.well_irrigation); // Newly added
-                    $("#p_sf").text(response.data.sf_no);
-                    $("#p_soil").text(response.data.soil_type);
-                    $("#p_land").text(response.data.land_serve);
-                    $("#p_field").text(response.data.field_insp);
-                    $("#p_site").text(response.data.site_appr);
-                    $("#p_type_of_work").text(response.data.type_of_work); // Newly added
-                    $("#p_doi").text(response.data.date_of_insp);
-                    $("#p_doa").text(response.data.date_of_appr);
-                    $("#p_len").text(response.data.length);
-                    $("#p_dep").text(response.data.depth);
-                    $("#p_breadth").text(response.data.breadth); // Newly added
-                    $("#p_vol").text(response.data.volume);
-                    $("#p_pcont").text(response.data.pradan_cont);
-                    $("#p_fcont").text(response.data.farmer_cont);
-                    $("#total").text(response.data.total);
+                   $("#p_owner").text(response.data.ownership);
+                        $("#p_patta").text(response.data.patta);
+                        $("#p_tarea").text(response.data.total_area);
+                        $("#p_irrigated_lands").text(response.data.irrigated_lands); // Newly added
+                        $("#p_revenue").text(response.data.revenue);
+                        $("#p_livestock").text(response.data.livestocks); // Newly added
+                        $("#p_crop_season").text(response.data.crop_season); // Newly added
+                        $("#p_well_irrigation").text(response.data.well_irrigation); // Newly added
+                        $("#p_sf").text(response.data.sf_number);
+                        $("#p_soil").text(response.data.soil_type);
+                        $("#p_land").text(response.data.land_to_benefit);
+                        $("#p_field").text(response.data.field_insp);
+                        $("#p_site").text(response.data.site_app);
+                        $("#p_type_of_work").text(response.data.type_of_work); // Newly added
+                        $("#p_doi").text(response.data.date_of_ins);
+                        $("#p_doa").text(response.data.date_of_app);
+                        $("#p_len").text(response.data.length);
+                        $("#p_dep").text(response.data.depth);
+                        $("#p_breadth").text(response.data.breadth); // Newly added
+                        $("#p_vol").text(response.data.volume);
+                        $("#p_pcont").text(response.data.p_contribution);
+                        $("#p_fcont").text(response.data.f_contribution);
+                        $("#total").text(response.data.total_est);
 
-                    $("#ponddet_modal").modal("show");
+                        $("#ponddet_modal").modal("show");
 
 
                 }
@@ -1568,30 +1568,30 @@
             success: function(response) {
                 console.log(response);
                 $("#plant_ownership").text(response.data.ownership);
-                $("#plant_well_irrigation").text(response.data.well_irrigation);
-                $("#plant_area_irrigated").text(response.data.area_irrigated);
-                $("#plant_irrigated_lands").text(response.data.irrigated_lands);
-                $("#plant_patta").text(response.data.patta);
-                $("#plant_total_area").text(response.data.total_area);
-                $("#plant_revenue").text(response.data.revenue);
-                $("#plant_crop_season").text(response.data.crop_season);
-                $("#plant_livestock").text(response.data.livestocks);
-                $("#plant_type").text(response.data.plantation);
-                $("#plant_sf_no").text(response.data.sf_no);
-                $("#plant_soil_type").text(response.data.soil_type);
-                $("#plant_land_benefit").text(response.data.land_benefit);
-                $("#plant_field_inspection").text(response.data.field_insp);
-                $("#plant_site_approval").text(response.data.site_app);
-                $("#plant_date_of_inspection").text(response.data.date_of_ins);
-                $("#plant_date_of_approval").text(response.data.date_of_app);
-                $("#plant_type_of_work").text(response.data.type_of_work);
-                $("#plant_area_benefit").text(response.data.area_benefit);
-                $("#plant_other_works").text(response.data.other_works);
-                $("#plant_pradan_contribution").text(response.data.pradan_cont);
-                $("#plant_farmer_contribution").text(response.data.farmer_cont);
-                $("#plant_total_amount").text(response.data.total_amount);
+                    $("#plant_well_irrigation").text(response.data.well_irrigation);
+                    $("#plant_area_irrigated").text(response.data.area_irrigated);
+                    $("#plant_irrigated_lands").text(response.data.irrigated_lands);
+                    $("#plant_patta").text(response.data.patta);
+                    $("#plant_total_area").text(response.data.total_area);
+                    $("#plant_revenue").text(response.data.revenue);
+                    $("#plant_crop_season").text(response.data.crop_season);
+                    $("#plant_livestock").text(response.data.livestocks);
+                    $("#plant_type").text(response.data.plantations);
+                    $("#plant_sf_no").text(response.data.sf_number);
+                    $("#plant_soil_type").text(response.data.soil_type);
+                    $("#plant_land_benefit").text(response.data.land_to_benefit);
+                    $("#plant_field_inspection").text(response.data.field_insp);
+                    $("#plant_site_approval").text(response.data.site_app);
+                    $("#plant_date_of_inspection").text(response.data.date_of_ins);
+                    $("#plant_date_of_approval").text(response.data.date_of_app);
+                    $("#plant_type_of_work").text(response.data.type_of_work);
+                    $("#plant_area_benefit").text(response.data.area_benefited);
+                    $("#plant_other_works").text(response.data.any_other_works);
+                    $("#plant_pradan_contribution").text(response.data.p_contribution);
+                    $("#plant_farmer_contribution").text(response.data.f_contribution);
+                    $("#plant_total_amount").text(response.data.total_est);
 
-                $("#plantdet_modal").modal("show");
+                    $("#plantdet_modal").modal("show");
             }
 
         })

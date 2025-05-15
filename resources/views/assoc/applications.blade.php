@@ -2137,6 +2137,7 @@
         $(document).on("click", "#farmer_detail", function(e) {
             e.preventDefault();
             var form_id = $(this).val();
+            console.log(form_id);
             $.ajax({
                 type: "GET",
                 url: `/fetch_farmer_det/${form_id}`,
@@ -2144,12 +2145,12 @@
                     if (response.status == 200) {
                         console.log(response.data);
                         $("#f_name").text(response.data.farmer_name);
-                        $("#f_spouse").text(response.data.father_spouse);
-                        $("#f_mobile").text(response.data.mobile_number);
+                        $("#f_spouse").text(response.data.spouse);
+                        $("#f_mobile").text(response.data.mobile);
                         $("#f_gender").text(response.data.gender);
-                        $("#f_card").text(response.data.identity_card_type);
-                        $("#f_member").text(response.data.household_members);
-                        $("#f_number").text(response.data.identity_card_number);
+                        $("#f_card").text(response.data.id_type);
+                        $("#f_member").text(response.data.h_members);
+                        $("#f_number").text(response.data.id_number);
                         $("#f_hamlet").text(response.data.hamlet);
                         $("#f_panchayat").text(response.data.panchayat);
                         $("#f_block").text(response.data.block);
@@ -2161,7 +2162,7 @@
                         $("#f_drinking_water").text(response.data.drinking_water);
                         $("#f_potability").text(response.data.potability);
                         $("#f_domestic_water").text(response.data.domestic_water);
-                        $("#f_toilet_availability").text(response.data.toilet_availability);
+                        $("#f_toilet_availability").text(response.data.toilet_avail);
                         $("#f_toilet_condition").text(response.data.toilet_cond);
                         $("#f_house_owner").text(response.data.house_owner);
                         $("#f_household_education").text(response.data.household_education);
@@ -2194,17 +2195,17 @@
                         $("#l_revenue").text(response.data.revenue);
                         $("#l_sf").text(response.data.sf_no);
                         $("#l_soil").text(response.data.soil_type);
-                        $("#l_benefit").text(response.data.land_benefit);
+                        $("#l_benefit").text(response.data.land_to_benefit);
                         $("#l_field").text(response.data.field_insp);
                         $("#l_site").text(response.data.site_app);
                         $("#l_doi").text(response.data.date_of_ins);
                         $("#l_doa").text(response.data.date_of_app);
                         $("#l_type").text(response.data.type_of_work);
-                        $("#l_area").text(response.data.area_benefit);
-                        $("#l_oth").text(response.data.other_works);
-                        $("#l_pradan").text(response.data.pradan_cont);
-                        $("#l_farmer").text(response.data.farmer_cont);
-                        $("#l_total").text(response.data.total_amount);
+                        $("#l_area").text(response.data.area_benefited);
+                        $("#l_oth").text(response.data.any_other_works);
+                        $("#l_pradan").text(response.data.p_contribution);
+                        $("#l_farmer").text(response.data.f_contribution);
+                        $("#l_total").text(response.data.total_est);
 
                         $("#landdet_modal").modal("show");
 
@@ -2250,7 +2251,7 @@
                 success: function(response) {
                     console.log(response);
                     if (response.status == 200) {
-                        $("#p_owner").text(response.data.land_owner);
+                        $("#p_owner").text(response.data.ownership);
                         $("#p_patta").text(response.data.patta);
                         $("#p_tarea").text(response.data.total_area);
                         $("#p_irrigated_lands").text(response.data.irrigated_lands); // Newly added
@@ -2258,21 +2259,21 @@
                         $("#p_livestock").text(response.data.livestocks); // Newly added
                         $("#p_crop_season").text(response.data.crop_season); // Newly added
                         $("#p_well_irrigation").text(response.data.well_irrigation); // Newly added
-                        $("#p_sf").text(response.data.sf_no);
+                        $("#p_sf").text(response.data.sf_number);
                         $("#p_soil").text(response.data.soil_type);
-                        $("#p_land").text(response.data.land_serve);
+                        $("#p_land").text(response.data.land_to_benefit);
                         $("#p_field").text(response.data.field_insp);
-                        $("#p_site").text(response.data.site_appr);
+                        $("#p_site").text(response.data.site_app);
                         $("#p_type_of_work").text(response.data.type_of_work); // Newly added
-                        $("#p_doi").text(response.data.date_of_insp);
-                        $("#p_doa").text(response.data.date_of_appr);
+                        $("#p_doi").text(response.data.date_of_ins);
+                        $("#p_doa").text(response.data.date_of_app);
                         $("#p_len").text(response.data.length);
                         $("#p_dep").text(response.data.depth);
                         $("#p_breadth").text(response.data.breadth); // Newly added
                         $("#p_vol").text(response.data.volume);
-                        $("#p_pcont").text(response.data.pradan_cont);
-                        $("#p_fcont").text(response.data.farmer_cont);
-                        $("#total").text(response.data.total);
+                        $("#p_pcont").text(response.data.p_contribution);
+                        $("#p_fcont").text(response.data.f_contribution);
+                        $("#total").text(response.data.total_est);
 
                         $("#ponddet_modal").modal("show");
 
@@ -2304,20 +2305,20 @@
                     $("#plant_revenue").text(response.data.revenue);
                     $("#plant_crop_season").text(response.data.crop_season);
                     $("#plant_livestock").text(response.data.livestocks);
-                    $("#plant_type").text(response.data.plantation);
-                    $("#plant_sf_no").text(response.data.sf_no);
+                    $("#plant_type").text(response.data.plantations);
+                    $("#plant_sf_no").text(response.data.sf_number);
                     $("#plant_soil_type").text(response.data.soil_type);
-                    $("#plant_land_benefit").text(response.data.land_benefit);
+                    $("#plant_land_benefit").text(response.data.land_to_benefit);
                     $("#plant_field_inspection").text(response.data.field_insp);
                     $("#plant_site_approval").text(response.data.site_app);
                     $("#plant_date_of_inspection").text(response.data.date_of_ins);
                     $("#plant_date_of_approval").text(response.data.date_of_app);
                     $("#plant_type_of_work").text(response.data.type_of_work);
-                    $("#plant_area_benefit").text(response.data.area_benefit);
-                    $("#plant_other_works").text(response.data.other_works);
-                    $("#plant_pradan_contribution").text(response.data.pradan_cont);
-                    $("#plant_farmer_contribution").text(response.data.farmer_cont);
-                    $("#plant_total_amount").text(response.data.total_amount);
+                    $("#plant_area_benefit").text(response.data.area_benefited);
+                    $("#plant_other_works").text(response.data.any_other_works);
+                    $("#plant_pradan_contribution").text(response.data.p_contribution);
+                    $("#plant_farmer_contribution").text(response.data.f_contribution);
+                    $("#plant_total_amount").text(response.data.total_est);
 
                     $("#plantdet_modal").modal("show");
                 }
@@ -2405,6 +2406,7 @@
         $(document).on("click", "#doc_view", function(e) {
             e.preventDefault();
             let formId = $(this).val();
+            console.log(formId);
 
             // Clear previous buttons
             $('#document-buttons').html('');
@@ -2427,7 +2429,10 @@
 
         $(document).on("click", ".doc-file-btn", function() {
             let form_id = $(this).val();
-            let type = $(this).text().trim().toLowerCase(); // 'patta', 'identity', etc.
+            let type = $(this).text().trim().toLowerCase();
+             // 'patta', 'identity', etc.
+             console.log(form_id);
+             console.log(type);
 
             $.ajax({
                 url: "/get-document",
@@ -2536,12 +2541,12 @@
                 success: function(response) {
                     // Populate modal fields
                     $('#input_f_name').val(response.farmer_name);
-                    $('#input_f_spouse').val(response.father_spouse);
-                    $('#input_f_mobile').val(response.mobile_number);
+                    $('#input_f_spouse').val(response.spouse);
+                    $('#input_f_mobile').val(response.mobile);
                     $('#input_f_gender').val(response.gender);
-                    $('#input_f_card').val(response.identity_card_type);
-                    $('#input_f_member').val(response.household_members);
-                    $('#input_f_number').val(response.identity_card_number);
+                    $('#input_f_card').val(response.id_type);
+                    $('#input_f_member').val(response.h_members);
+                    $('#input_f_number').val(response.id_number);
                     $('#input_f_hamlet').val(response.hamlet);
                     $('#input_f_panchayat').val(response.panchayat);
                     $('#input_f_block').val(response.block);
@@ -2553,7 +2558,7 @@
                     $('#input_f_drinking_water').val(response.drinking_water);
                     $('#input_f_potability').val(response.potability);
                     $('#input_f_domestic_water').val(response.domestic_water);
-                    $('#input_f_toilet_availability').val(response.toilet_availability);
+                    $('#input_f_toilet_availability').val(response.toilet_avail);
                     $('#input_f_toilet_condition').val(response.toilet_cond);
                     $('#input_f_house_owner').val(response.house_owner);
                     $('#input_f_household_education').val(response.household_education);
@@ -2578,7 +2583,7 @@
                 success: function(res) {
                     console.log(res);
                     $('#p2_pond_id').val(res.id);
-                    $('#p2_owner').val(res.land_owner);
+                    $('#p2_owner').val(res.ownership);
                     $('#p2_patta').val(res.patta);
                     $('#p2_tarea').val(res.total_area);
                     $('#p2_irrigated_lands').val(res.irrigated_lands);
@@ -2586,20 +2591,20 @@
                     $('#p2_livestock').val(res.livestocks);
                     $('#p2_crop_season').val(res.crop_season);
                     $('#p2_well_irrigation').val(res.well_irrigation);
-                    $('#p2_sf').val(res.sf_no);
+                    $('#p2_sf').val(res.sf_number);
                     $('#p2_soil').val(res.soil_type);
-                    $('#p2_land').val(res.land_serve);
+                    $('#p2_land').val(res.land_to_benefit);
                     $('#p2_field').val(res.field_insp);
-                    $('#p2_site').val(res.site_appr);
-                    $('#p2_doi').val(res.date_of_insp);
-                    $('#p2_doa').val(res.date_of_appr);
+                    $('#p2_site').val(res.site_app);
+                    $('#p2_doi').val(res.date_of_ins);
+                    $('#p2_doa').val(res.date_of_app);
                     $('#p2_len').val(res.length);
                     $('#p2_dep').val(res.depth);
                     $('#p2_breadth').val(res.breadth);
                     $('#p2_vol').val(res.volume);
-                    $('#p2_pcont').val(res.pradan_cont);
-                    $('#p2_fcont').val(res.farmer_cont);
-                    $('#p2_total').val(res.total);
+                    $('#p2_pcont').val(res.p_contribution);
+                    $('#p2_fcont').val(res.f_contribution);
+                    $('#p2_total').val(res.total_est);
 
                     $('#editponddet_modal_2').modal('show');
                 }
@@ -2632,20 +2637,20 @@
                         $("#pl_revenue").val(d.revenue);
                         $("#pl_crop_season").val(d.crop_season);
                         $("#pl_livestock").val(d.livestocks);
-                        $("#pl_type").val(d.plantation);
-                        $("#pl_sf_no").val(d.sf_no);
+                        $("#pl_type").val(d.plantations);
+                        $("#pl_sf_no").val(d.sf_number);
                         $("#pl_soil_type").val(d.soil_type);
-                        $("#pl_land_benefit").val(d.land_benefit);
+                        $("#pl_land_benefit").val(d.land_to_benefit);
                         $("#pl_field_inspection").val(d.field_insp);
                         $("#pl_site_approval").val(d.site_app);
                         $("#pl_date_of_inspection").val(d.date_of_ins);
                         $("#pl_date_of_approval").val(d.date_of_app);
                         $("#pl_type_of_work").val(d.type_of_work);
-                        $("#pl_area_benefit").val(d.area_benefit);
+                        $("#pl_area_benefit").val(d.area_benefited);
                         $("#pl_other_works").val(d.other_works);
-                        $("#pl_pradan_contribution").val(d.pradan_cont);
-                        $("#pl_farmer_contribution").val(d.farmer_cont);
-                        $("#pl_total_amount").val(d.total_amount);
+                        $("#pl_pradan_contribution").val(d.p_contribution);
+                        $("#pl_farmer_contribution").val(d.f_contribution);
+                        $("#pl_total_amount").val(d.total_est);
 
                         $("#editplantdet_modal").modal("show");
                     } else {
