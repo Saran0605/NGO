@@ -90,7 +90,7 @@ class Form extends Model
 		'remarks'
 	];
 
-	public function bank_details()
+	public function bankDetail()
 	{
 		return $this->hasMany(BankDetail::class);
 	}
