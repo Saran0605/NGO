@@ -156,15 +156,15 @@
                                     </div>
 
                                     <!-- User Info Card (6 columns) -->
-                                    <div class="col-md-8">
+                                     <div class="col-md-8">
                                         <div class="card shadow card-light-danger h-100 w-100">
                                             <div class="card-body">
                                                 <h5 class="card-title text-dark">User Details</h5>
                                                 <p><strong>Name:</strong> {{ session('name') }}</p>
                                                 <p><strong>User ID:</strong> {{ session('user_id') }}</p>
-                                                <p><strong>DOB:</strong> Fetch from DB</p>
+                                                <p><strong>Mobile:</strong>{{ session('mobile') }}</p>
                                                 <p><strong>Email:</strong> {{ session('email') }}</p>
-                                                <p><strong>Phone:</strong> Fetch from DB</p>
+                                                <p><strong>Location:</strong>{{session('location')}}</p>
                                             </div>
                                         </div>
                                     </div>

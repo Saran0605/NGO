@@ -62,6 +62,8 @@ class mainController extends Controller
                 'name'=> $user->name,   
                 'email'=> $user->email,
                 'user_id'=> $user->id,
+                'mobile'=>$user->mobile,
+                'location'=>$user->location,
                 'role'=>$user->role
                 
             ]);

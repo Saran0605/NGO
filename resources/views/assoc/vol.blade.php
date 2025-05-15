@@ -112,16 +112,24 @@
                             <div class="row">
                                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                                     <h3 class="font-weight-bold">Welcome {{ session('name') }} </h3>
-                                    <h6 class="font-weight-normal mb-0">Volunteer #{{ session('user_id')}}</h6>
+                                    <h6 class="font-weight-normal mb-0">Associate #{{ session('user_id')}}</h6>
                                 </div>
                                 <div class="col-12 col-xl-4">
                                     <div class="justify-content-end d-flex">
-                                        <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
-                                            <button class="btn btn-sm btn-light bg-white" type="button"
-                                                id="dropdownMenuDate2" data-bs-toggle="dropdown" aria-haspopup="true"
-                                                aria-expanded="true">
-                                                <i class="mdi mdi-calendar"></i> Today (10 Jan 2021) </button>
-                                        </div>
+                                       @php
+    use Carbon\Carbon;
+    $today = Carbon::now();
+@endphp
+
+<div class="dropdown flex-md-grow-1 flex-xl-grow-0">
+    <button class="btn btn-sm btn-light bg-white" type="button"
+        id="dropdownMenuDate2" data-bs-toggle="dropdown" aria-haspopup="true"
+        aria-expanded="true">
+        <i class="mdi mdi-calendar"></i>
+        {{ $today->format('l, d M Y') }} {{-- e.g. Monday, 15 May 2025 --}}
+    </button>
+  
+</div>
                                     </div>
                                 </div>
                             </div>
@@ -146,9 +154,9 @@
                                                 <h5 class="card-title text-dark">User Details</h5>
                                                 <p><strong>Name:</strong> {{ session('name') }}</p>
                                                 <p><strong>User ID:</strong> {{ session('user_id') }}</p>
-                                                <p><strong>DOB:</strong> Fetch from DB</p>
+                                                <p><strong>Mobile:</strong>{{ session('mobile') }}</p>
                                                 <p><strong>Email:</strong> {{ session('email') }}</p>
-                                                <p><strong>Phone:</strong> Fetch from DB</p>
+                                                <p><strong>Location:</strong>{{session('location')}}</p>
                                             </div>
                                         </div>
                                     </div>
