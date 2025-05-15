@@ -1191,53 +1191,122 @@
         </div>
     </div>
 
-    <!-- Edit Land Form Modal -->
-    <div class="modal fade" id="editlanddet_modal" tabindex="-1" aria-labelledby="editLandModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content" style="border-radius: 8px;">
-                <div class="modal-header bg-success text-white">
-                    <h5 class="modal-title" id="editLandModalLabel">Edit Land Form</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: #fff;"></button>
-                </div>
-                <form id="editlandEditForm">
-                    @csrf
-                    <div class="modal-body">
-                        <input type="hidden" name="ed_land_id" id="ed_land_id">
+        <!-- Edit Land Form Modal -->
+<div class="modal fade" id="editlanddet_modal" tabindex="-1" aria-labelledby="editLandModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content" style="border-radius: 8px;">
+            <div class="modal-header bg-success text-white">
+                <h5 class="modal-title" id="editLandModalLabel">Edit Land Form</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="background-color: #fff;"></button>
+            </div>
+            <form id="editlandEditForm">
+                @csrf
+                <div class="modal-body">
+                    <input type="hidden" name="ed_land_id" id="ed_land_id">
 
-                        <div class="row g-3">
-                            <div class="col-md-6"><label>Ownership</label><input type="text" class="form-control" name="ownership" id="ownership"></div>
-                            <div class="col-md-6"><label>Well Irrigation</label><input type="text" class="form-control" name="well_irrigation" id="well_irrigation"></div>
-                            <div class="col-md-6"><label>Area Irrigated</label><input type="text" class="form-control" name="area_irrigated" id="area_irrigated"></div>
-                            <div class="col-md-6"><label>Irrigated Lands</label><input type="text" class="form-control" name="irrigated_lands" id="irrigated_lands"></div>
-                            <div class="col-md-6"><label>Patta</label><input type="text" class="form-control" name="patta" id="patta"></div>
-                            <div class="col-md-6"><label>Total Area</label><input type="text" class="form-control" name="total_area" id="total_area"></div>
-                            <div class="col-md-6"><label>Revenue</label><input type="text" class="form-control" name="revenue" id="revenue"></div>
-                            <div class="col-md-6"><label>Crop Season</label><input type="text" class="form-control" name="crop_season" id="crop_season"></div>
-                            <div class="col-md-6"><label>Livestocks</label><input type="text" class="form-control" name="livestocks" id="livestocks"></div>
-                            <div class="col-md-6"><label>SF Number</label><input type="text" class="form-control" name="sf_no" id="sf_no"></div>
-                            <div class="col-md-6"><label>Soil Type</label><input type="text" class="form-control" name="soil_type" id="soil_type"></div>
-                            <div class="col-md-6"><label>Land Benefit</label><input type="text" class="form-control" name="land_benefit" id="land_benefit"></div>
-                            <div class="col-md-6"><label>Field Inspection</label><input type="text" class="form-control" name="field_insp" id="field_insp"></div>
-                            <div class="col-md-6"><label>Site Approved</label><input type="text" class="form-control" name="site_app" id="site_app"></div>
-                            <div class="col-md-6"><label>Date of Inspection</label><input type="date" class="form-control" name="date_of_ins" id="date_of_ins"></div>
-                            <div class="col-md-6"><label>Date of Approval</label><input type="date" class="form-control" name="date_of_app" id="date_of_app"></div>
-                            <div class="col-md-6"><label>Type of Work</label><input type="text" class="form-control" name="type_of_work" id="type_of_work"></div>
-                            <div class="col-md-6"><label>Area Benefited</label><input type="text" class="form-control" name="area_benefit" id="area_benefit"></div>
-                            <div class="col-md-6"><label>Other Works</label><input type="text" class="form-control" name="other_works" id="other_works"></div>
-                            <div class="col-md-6"><label>Pradan Contribution</label><input type="text" class="form-control" name="pradan_cont" id="pradan_cont"></div>
-                            <div class="col-md-6"><label>Farmer Contribution</label><input type="text" class="form-control" name="farmer_cont" id="farmer_cont"></div>
-                            <div class="col-md-6"><label>Total Estimate Amount</label><input type="text" class="form-control" name="total_amount" id="total_amount"></div>
-                            <div class="col-md-6"><label>Area PF</label><input type="text" class="form-control" name="area_pf" id="area_pf"></div>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label>Ownership</label>
+                            <input type="text" class="form-control" name="ownership" id="ownership" placeholder="Enter ownership details">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Well Irrigation</label>
+                            <input type="text" class="form-control" name="well_irrigation" id="well_irrigation" placeholder="Enter well irrigation info">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Area Irrigated</label>
+                            <input type="text" class="form-control" name="area_irrigated" id="area_irrigated" placeholder="Enter area irrigated">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Irrigated Lands</label>
+                            <input type="text" class="form-control" name="irrigated_lands" id="irrigated_lands" placeholder="Enter irrigated land details">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Patta</label>
+                            <input type="text" class="form-control" name="patta" id="patta" placeholder="Enter patta number">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Total Area</label>
+                            <input type="text" class="form-control" name="total_area" id="total_area" placeholder="Enter total area">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Revenue</label>
+                            <input type="text" class="form-control" name="revenue" id="revenue" placeholder="Enter revenue">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Crop Season</label>
+                            <input type="text" class="form-control" name="crop_season" id="crop_season" placeholder="Enter crop season">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Livestocks</label>
+                            <input type="text" class="form-control" name="livestocks" id="livestocks" placeholder="Enter livestock info">
+                        </div>
+                        <div class="col-md-6">
+                            <label>SF Number</label>
+                            <input type="text" class="form-control" name="sf_number" id="sf_number" placeholder="Enter SF number">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Soil Type</label>
+                            <input type="text" class="form-control" name="soil_type" id="soil_type" placeholder="Enter soil type">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Land to Benefit</label>
+                            <input type="text" class="form-control" name="land_to_benefit" id="land_to_benefit" placeholder="Enter land to benefit">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Field Inspection</label>
+                            <input type="text" class="form-control" name="field_insp" id="field_insp" placeholder="Enter field inspection status">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Site Approved</label>
+                            <input type="text" class="form-control" name="site_app" id="site_app" placeholder="Enter site approval status">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Date of Inspection</label>
+                            <input type="date" class="form-control" name="date_of_ins" id="date_of_ins">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Date of Approval</label>
+                            <input type="date" class="form-control" name="date_of_app" id="date_of_app">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Type of Work</label>
+                            <input type="text" class="form-control" name="type_of_work" id="type_of_work" placeholder="Enter type of work">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Area Benefited</label>
+                            <input type="text" class="form-control" name="area_benefit" id="area_benefit" placeholder="Enter area benefited">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Any Other Works</label>
+                            <input type="text" class="form-control" name="any_other_works" id="any_other_works" placeholder="Enter other works info">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Public Contribution</label>
+                            <input type="text" class="form-control" name="p_contribution" id="p_contribution" placeholder="Enter public contribution">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Farmer Contribution</label>
+                            <input type="text" class="form-control" name="f_contribution" id="f_contribution" placeholder="Enter farmer contribution">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Total Estimate</label>
+                            <input type="text" class="form-control" name="total_est" id="total_est" placeholder="Enter total estimate">
+                        </div>
+                        <div class="col-md-6">
+                            <label>Area PF</label>
+                            <input type="text" class="form-control" name="area_pf" id="area_pf" placeholder="Enter area PF">
                         </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-success">Update</button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                    </div>
-                </form>
-            </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success">Update</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </form>
         </div>
     </div>
+</div>
 
 
 
