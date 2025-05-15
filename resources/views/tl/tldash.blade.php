@@ -124,11 +124,19 @@
                                 </div>
                                 <div class="col-12 col-xl-4">
                                     <div class="justify-content-end d-flex">
+                                        @php
+                                        use Carbon\Carbon;
+                                        $today = Carbon::now();
+                                        @endphp
+
                                         <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
                                             <button class="btn btn-sm btn-light bg-white" type="button"
                                                 id="dropdownMenuDate2" data-bs-toggle="dropdown" aria-haspopup="true"
                                                 aria-expanded="true">
-                                                <i class="mdi mdi-calendar"></i> Today (10 Jan 2021) </button>
+                                                <i class="mdi mdi-calendar"></i>
+                                                {{ $today->format('l, d M Y') }} {{-- e.g. Monday, 15 May 2025 --}}
+                                            </button>
+
                                         </div>
                                     </div>
                                 </div>
@@ -144,7 +152,7 @@
                                     <div class="col-md-4 d-flex align-items-center">
                                         <div class="card shadow card-tale text-center rounded-circle">
                                             <div class="card-body d-flex flex-column align-items-center justify-content-center">
-                                                <img src="assets/images/faces/face15.jpg" alt="Profile Picture" class="img-fluid rounded-circle" style="width: 140px; height: 140px; object-fit: cover;">
+                                                <img src="assets/images/faces/user.png" alt="Profile Picture" class="img-fluid rounded-circle" style="width: 140px; height: 140px; object-fit: cover;">
                                             </div>
                                         </div>
                                     </div>
