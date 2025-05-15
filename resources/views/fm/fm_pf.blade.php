@@ -347,21 +347,21 @@
                                                                 <td>{{ $form->hamlet ?? 'NA' }}</td>
                                                                 <td>{{ $form->mcode ?? 'NA' }}</td>
                                                                 <td>{{ $form->farmer_name ?? 'NA' }}</td>
-                                                                <td>{{ $form->father_spouse ?? 'NA' }}</td>
+                                                                <td>{{ $form->spouse ?? 'NA' }}</td>
                                                                 <td>{{ $form->gender ?? 'NA' }}</td>
                                                                 <td>{{ $form->caste ?? 'NA' }}</td>
-                                                                <td>{{ $form->identity_card_number ?? 'NA' }}</td>
-                                                                <td>{{ $form->mobile_number ?? 'NA' }}</td>
+                                                                <td>{{ $form->id_number ?? 'NA' }}</td>
+                                                                <td>{{ $form->mobile ?? 'NA' }}</td>
                                                                 <td>{{ $form->landForm->patta ?? 'NA' }}</td>
                                                                 <td>{{ $form->lat ?? 'NA' }}</td>
                                                                 <td>{{ $form->lon ?? 'NA' }}</td>
-                                                                <td>{{ $form->landForm->pradan_cont ?? 0 }}</td>
-                                                                <td>{{ $form->landForm->farmer_cont ?? 0 }}</td>
+                                                                <td>{{ $form->landForm->p_contribution ?? 0 }}</td>
+                                                                <td>{{ $form->landForm->f_contribution ?? 0 }}</td>
                                                                 <td>
                                                                     {{ 
-                    ($form->landForm->pradan_cont ?? 0) 
+                    ($form->landForm->p_contribution ?? 0) 
                     + 
-                    ($form->landForm->farmer_cont ?? 0) 
+                    ($form->landForm->f_contribution ?? 0) 
                 }}
                                                                 </td>
                                                                 <td>{{ $form->bankDetail->account_number ?? 'NA' }}</td>
@@ -1285,7 +1285,7 @@
                         $("#f_drinking_water").text(response.data.drinking_water);
                         $("#f_potability").text(response.data.potability);
                         $("#f_domestic_water").text(response.data.domestic_water);
-                        $("#f_toilet_availability").text(response.data.toilet_avail;
+                        $("#f_toilet_availability").text(response.data.toilet_avail);
                         $("#f_toilet_condition").text(response.data.toilet_cond);
                         $("#f_house_owner").text(response.data.house_owner);
                         $("#f_household_education").text(response.data.household_education);

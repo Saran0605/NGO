@@ -1099,6 +1099,11 @@ public function updateLandForm(Request $request)
         'date_of_ins', 'date_of_app', 'type_of_work', 'area_benefited', 'any_other_works',
         'p_contribution', 'f_contribution', 'total_est', 'area_benefited_postfunding'
     ]));
+      $form = Form::find($request->ed_land_id); // Assuming Form.id = ed_land_id
+    if ($form) {
+        $form->status = 1;
+        $form->save();
+    }
 
     return response()->json(['success' => 'Land form updated successfully']);
 }
