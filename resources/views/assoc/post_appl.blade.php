@@ -449,7 +449,7 @@
                                                                 <td>
                                                                     @if($f->status == 6)
                                                                     <button type="button"
-                                                                        class="btn btn-primary pf_land"
+                                                                        class="btn btn-primary pf_pond"
                                                                         value="{{ $f->id }}">
                                                                         Post Fund
                                                                     </button>
@@ -531,7 +531,7 @@
                                                                 <td>
                                                                     @if($f->status == 6)
                                                                     <button type="button"
-                                                                        class="btn btn-primary pf_land"
+                                                                        class="btn btn-primary pf_plant"
                                                                         value="{{ $f->id }}">
                                                                         Post Fund
                                                                     </button>

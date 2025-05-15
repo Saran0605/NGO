@@ -950,7 +950,11 @@ public function updateBankDetails(Request $request)
             'branch' => $request->branch,
             'ifsc_code' => $request->ifsc_code
         ]);
-
+$form = Form::find($request->form_id);
+    if ($form) {
+        $form->status = 1;
+        $form->save();
+    }
         return response()->json(['success' => true, 'message' => 'Bank details updated successfully']);
     }
 
@@ -992,6 +996,11 @@ public function updateFarmerDetails(Request $request)
         'lon' => $request->lon,
         'mcode' => $request->mcode,
     ]);
+    $form = Form::find($request->form_id); // Assuming Form.id = ed_land_id
+    if ($form) {
+        $form->status = 1;
+        $form->save();
+    }
 
     return response()->json(['message' => 'Form updated successfully']);
 }
@@ -1031,6 +1040,11 @@ public function updatePond(Request $request)
         'f_contribution' => $request->p_fcont,
         'total_est' => $request->total,
     ]);
+    $form = Form::find($request->pond_id); // Assuming Form.id = ed_land_id
+    if ($form) {
+        $form->status = 1;
+        $form->save();
+    }
 
     return response()->json(['success' => true]);
 }
@@ -1075,6 +1089,11 @@ public function updatePlantForm(Request $request)
             'f_contribution' => $request->pl_farmer_contribution,
             'total_est' => $request->pl_total_amount
         ]);
+        $form = Form::find($request->plant_id); // Assuming Form.id = ed_land_id
+    if ($form) {
+        $form->status = 1;
+        $form->save();
+    }
 
         return response()->json(['success' => true, 'message' => 'Updated successfully']);
     }

@@ -414,9 +414,9 @@
                                                                 <th>Branch</th>
                                                             </tr>
                                                         </thead>
-                                                        <tbody>
+                                                         <tbody>
                                                             @php $i = 1; @endphp
-                                                            @foreach($form2 as $form)
+                                                            @foreach($form1 as $form)
                                                             <tr class="text-center">
                                                                 <td>{{ $i++ }}</td>
                                                                 <td>{{ $form->district ?? 'NA' }}</td>
@@ -425,21 +425,21 @@
                                                                 <td>{{ $form->hamlet ?? 'NA' }}</td>
                                                                 <td>{{ $form->mcode ?? 'NA' }}</td>
                                                                 <td>{{ $form->farmer_name ?? 'NA' }}</td>
-                                                                <td>{{ $form->father_spouse ?? 'NA' }}</td>
+                                                                <td>{{ $form->spouse ?? 'NA' }}</td>
                                                                 <td>{{ $form->gender ?? 'NA' }}</td>
                                                                 <td>{{ $form->caste ?? 'NA' }}</td>
-                                                                <td>{{ $form->identity_card_number ?? 'NA' }}</td>
-                                                                <td>{{ $form->mobile_number ?? 'NA' }}</td>
-                                                                <td>{{ $form->pondForm->patta ?? 'NA' }}</td>
+                                                                <td>{{ $form->id_number ?? 'NA' }}</td>
+                                                                <td>{{ $form->mobile ?? 'NA' }}</td>
+                                                                <td>{{ $form->landForm->patta ?? 'NA' }}</td>
                                                                 <td>{{ $form->lat ?? 'NA' }}</td>
                                                                 <td>{{ $form->lon ?? 'NA' }}</td>
-                                                                <td>{{ $form->pondForm->pradan_cont ?? 0 }}</td>
-                                                                <td>{{ $form->pondForm->farmer_cont ?? 0 }}</td>
+                                                                <td>{{ $form->landForm->p_contribution ?? 0 }}</td>
+                                                                <td>{{ $form->landForm->f_contribution ?? 0 }}</td>
                                                                 <td>
                                                                     {{ 
-                    ($form->pondForm->pradan_cont ?? 0) 
+                    ($form->landForm->p_contribution ?? 0) 
                     + 
-                    ($form->pondForm->farmer_cont ?? 0) 
+                    ($form->landForm->f_contribution ?? 0) 
                 }}
                                                                 </td>
                                                                 <td>{{ $form->bankDetail->account_number ?? 'NA' }}</td>
@@ -449,6 +449,7 @@
                                                             </tr>
                                                             @endforeach
                                                         </tbody>
+
 
 
                                                     </table>
@@ -494,7 +495,7 @@
                                                         </thead>
                                                         <tbody>
                                                             @php $i = 1; @endphp
-                                                            @foreach($form3 as $form)
+                                                            @foreach($form1 as $form)
                                                             <tr class="text-center">
                                                                 <td>{{ $i++ }}</td>
                                                                 <td>{{ $form->district ?? 'NA' }}</td>
@@ -503,21 +504,21 @@
                                                                 <td>{{ $form->hamlet ?? 'NA' }}</td>
                                                                 <td>{{ $form->mcode ?? 'NA' }}</td>
                                                                 <td>{{ $form->farmer_name ?? 'NA' }}</td>
-                                                                <td>{{ $form->father_spouse ?? 'NA' }}</td>
+                                                                <td>{{ $form->spouse ?? 'NA' }}</td>
                                                                 <td>{{ $form->gender ?? 'NA' }}</td>
                                                                 <td>{{ $form->caste ?? 'NA' }}</td>
-                                                                <td>{{ $form->identity_card_number ?? 'NA' }}</td>
-                                                                <td>{{ $form->mobile_number ?? 'NA' }}</td>
-                                                                <td>{{ $form->plantForm->patta ?? 'NA' }}</td>
+                                                                <td>{{ $form->id_number ?? 'NA' }}</td>
+                                                                <td>{{ $form->mobile ?? 'NA' }}</td>
+                                                                <td>{{ $form->landForm->patta ?? 'NA' }}</td>
                                                                 <td>{{ $form->lat ?? 'NA' }}</td>
                                                                 <td>{{ $form->lon ?? 'NA' }}</td>
-                                                                <td>{{ $form->plantForm->pradan_cont ?? 0 }}</td>
-                                                                <td>{{ $form->plantForm->farmer_cont ?? 0 }}</td>
+                                                                <td>{{ $form->landForm->p_contribution ?? 0 }}</td>
+                                                                <td>{{ $form->landForm->f_contribution ?? 0 }}</td>
                                                                 <td>
                                                                     {{ 
-                    ($form->plantForm->pradan_cont ?? 0) 
+                    ($form->landForm->p_contribution ?? 0) 
                     + 
-                    ($form->plantForm->farmer_cont ?? 0) 
+                    ($form->landForm->f_contribution ?? 0) 
                 }}
                                                                 </td>
                                                                 <td>{{ $form->bankDetail->account_number ?? 'NA' }}</td>
@@ -527,6 +528,7 @@
                                                             </tr>
                                                             @endforeach
                                                         </tbody>
+
 
 
                                                     </table>
