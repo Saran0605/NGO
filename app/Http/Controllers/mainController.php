@@ -126,7 +126,6 @@ class mainController extends Controller
             'sf_no' => 'required',
             'land_benefit' => 'required',
             'soil_type' => 'required',
-            'inspection' => 'required',
             'approved_by' => 'required',
             'inspection_date' => 'required',
             'approval_date' => 'required',
@@ -174,8 +173,7 @@ class mainController extends Controller
         $form->household_education = $req->education;
         $form->age = $req->age;
         $form->district = $req->district;
-        $form->taluk = $req->taluk;
-        $form->firca = $req->firca;
+        
         $form->lat = $req->lat;
         $form->lon = $req->lon;
         $form->status = 1;
@@ -195,6 +193,8 @@ class mainController extends Controller
     $landForm->area_irrigated = $req->areaIrrigated;
     $landForm->irrigated_lands = $req->irrigatedLand;
     $landForm->crop_season = $req->cropSeason;
+    $landForm->taluk = $req->taluk;
+    $landForm->firka = $req->firca;
     $landForm->livestocks = implode(',', $req->livestock);
 
 
@@ -362,8 +362,7 @@ class mainController extends Controller
         $form->toilet_cond = $req->toiletWorking;
         $form->age = $req->age;
         $form->district = $req->district;
-        $form->taluk = $req->taluk;
-        $form->firca = $req->firca;
+       
         $form->lat = $req->lat;
         $form->lon = $req->lon;
         $form->household_education = $req->education;
@@ -385,7 +384,10 @@ class mainController extends Controller
  $pondForm->irrigated_lands = $req->irrigatedLand;
  $pondForm->crop_season = $req->cropSeason;
  $pondForm->area_irrigated = $req->area_irrigated;
+
  $pondForm->area_benefited = $req->areaBenefitted;
+  $pondForm->taluk = $req->taluk;
+        $pondForm->firka = $req->firca;
 
  $pondForm->livestocks = implode(',', $req->livestock);
 
@@ -544,8 +546,7 @@ return response()->json(['status' => 200, 'message' => 'inserted succesfully']);
         $form->potability = implode(',', $req->potability);
         $form->age = $req->age;
         $form->district = $req->district;
-        $form->taluk = $req->taluk;
-        $form->firca = $req->firca;
+       
         $form->lat = $req->lat;
         $form->lon = $req->lon;
         $form->domestic_water =  implode(',', $req->domesticWater);
@@ -568,6 +569,8 @@ return response()->json(['status' => 200, 'message' => 'inserted succesfully']);
     $landForm->area_irrigated = $req->areaIrrigated;
     $landForm->irrigated_lands = $req->irrigatedLand;
     $landForm->crop_season = $req->cropSeason;
+     $landForm->taluk = $req->taluk;
+        $landForm->firka = $req->firca;
     $landForm->livestocks = implode(',', $req->livestock);
     $landForm->plantations = implode(',', $req->plantation);
 

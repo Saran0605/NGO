@@ -505,10 +505,10 @@
                                             <div class="row mb-3 ms-2">
                                                 <div class="col-md-6">
                                                     <input type="radio" name="wellIrrigation" id="wellYes"
-                                                        class="form-check-input">
+                                                        class="form-check-input" value="Yes">
                                                     <label for="wellYes" class="form-check-label">Yes</label>
                                                     <input type="radio" name="wellIrrigation" id="wellNo"
-                                                        class="form-check-input ms-3">
+                                                        class="form-check-input ms-3" value="No">
                                                     <label for="wellNo" class="form-check-label">No</label>
                                                 </div>
                                                 <div class="col-md-6">
