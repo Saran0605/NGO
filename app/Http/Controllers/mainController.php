@@ -172,8 +172,7 @@ class mainController extends Controller
         $form->household_education = $req->education;
         $form->age = $req->age;
         $form->district = $req->district;
-        $form->taluk = $req->taluk;
-        $form->firca = $req->firca;
+       
         $form->lat = $req->lat;
         $form->lon = $req->lon;
         $form->status = 1;
@@ -194,6 +193,8 @@ class mainController extends Controller
     $landForm->irrigated_lands = $req->irrigatedLand;
     $landForm->crop_season = $req->cropSeason;
     $landForm->livestocks = implode(',', $req->livestock);
+    $landForm->taluk = $req->taluk;
+    $landForm->firka = $req->firca;
 
 
 

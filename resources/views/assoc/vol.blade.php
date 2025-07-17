@@ -165,7 +165,7 @@
                                     <div class="card card-tale">
                                         <div class="card-body">
                                             <p class="mb-4">Applications Submitted</p>
-                                            <p class="fs-30 mb-2 ">{{$totalSubmitted}}</p>
+                                            <p class="fs-30 mb-2 "></p>
                                             <p></p>
                                         </div>
                                     </div>
@@ -174,7 +174,7 @@
                                     <div class="card card-dark-blue">
                                         <div class="card-body">
                                             <p class="mb-4">Applications Approved</p>
-                                            <p class="fs-30 mb-2">{{$acceptedByTLorCoord}}</p>
+                                            <p class="fs-30 mb-2"></p>
                                         </div>
                                     </div>
                                 </div>
@@ -184,7 +184,7 @@
                                     <div class="card card-light-blue">
                                         <div class="card-body">
                                             <p class="mb-4">Request for edit</p>
-                                            <p class="fs-30 mb-2">{{$changeupdate}}</p>
+                                            <p class="fs-30 mb-2"></p>
                                             <p>
                                             <p>
                                         </div>
@@ -194,7 +194,7 @@
                                     <div class="card card-light-danger">
                                         <div class="card-body">
                                             <p class="mb-4">Applications Completed</p>
-                                            <p class="fs-30 mb-2">{{$completed}}</p>
+                                            <p class="fs-30 mb-2"></p>
                                             <p></p>
                                         </div>
                                     </div>

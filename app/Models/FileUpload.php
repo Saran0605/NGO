@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property string|null $geotag
  * @property string $patta
  * @property string $fmb
- * @property string $passbook_postfunding
+ * @property string|null $passbook_postfunding
  * @property string $photo
  * @property string $passbook
  *

@@ -380,7 +380,7 @@
 
                                                             @foreach($form1 as $f)
                                                             @php
-                                                            $account = $f->bankDetail->first();
+                                                            $account = $f->bankDetail;
                                                             @endphp
                                                             <tr>
                                                                 <td>{{$s++}}</td>
@@ -395,7 +395,7 @@
                                                                 </td>
                                                                 <td><button id="bank_detail" value="{{ $f->id }}" class="btn btn-link p-0"
                                                                         style="color: black; font-weight: bold; text-decoration: underline;">
-                                                                        <b>{{ str_repeat('X', strlen($account->account_number) - 4) . substr($account->account_number, -4) }}</b>
+                                                                        <b>hi</b>
                                                                     </button>
                                                                 </td>
                                                                 <td><button type="button" class="btn btn-primary"

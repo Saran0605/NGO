@@ -14,37 +14,37 @@ use Illuminate\Database\Eloquent\Model;
  * Class Form
  * 
  * @property int $id
- * @property string $user_id
- * @property string $form_type
- * @property string $farmer_name
- * @property string $age
- * @property string $district
- * @property string $mobile
- * @property string $gender
+ * @property string|null $user_id
+ * @property string|null $form_type
+ * @property string|null $farmer_name
+ * @property string|null $age
+ * @property string|null $district
+ * @property string|null $mobile
+ * @property string|null $gender
  * @property string|null $spouse
  * @property string|null $h_members
- * @property string $type_of_households
- * @property string $special_catog
- * @property string $caste
- * @property string $hh_occupation
- * @property string $type_of_house
- * @property string $drinking_water
- * @property string $potability
- * @property string $domestic_water
- * @property string $toilet_avail
- * @property string $toilet_cond
- * @property string $house_owner
- * @property string $household_education
- * @property string $id_type
- * @property string $id_number
+ * @property string|null $type_of_households
+ * @property string|null $special_catog
+ * @property string|null $caste
+ * @property string|null $hh_occupation
+ * @property string|null $type_of_house
+ * @property string|null $drinking_water
+ * @property string|null $potability
+ * @property string|null $domestic_water
+ * @property string|null $toilet_avail
+ * @property string|null $toilet_cond
+ * @property string|null $house_owner
+ * @property string|null $household_education
+ * @property string|null $id_type
+ * @property string|null $id_number
  * @property string|null $hamlet
  * @property string|null $panchayat
  * @property string|null $lat
  * @property string|null $lon
  * @property string|null $block
  * @property string|null $mcode
- * @property string $status
- * @property Carbon $created_at
+ * @property string|null $status
+ * @property Carbon|null $created_at
  * @property string|null $remarks
  * 
  * @property Collection|BankDetail[] $bank_details
