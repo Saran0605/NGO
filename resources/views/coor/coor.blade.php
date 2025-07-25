@@ -1790,7 +1790,7 @@
                         $("#f_drinking_water").text(response.data.drinking_water);
                         $("#f_potability").text(response.data.potability);
                         $("#f_domestic_water").text(response.data.domestic_water);
-                        $("#f_toilet_availability").text(response.data.toilet_avail;
+                        $("#f_toilet_availability").text(response.data.toilet_avail);
                         $("#f_toilet_condition").text(response.data.toilet_cond);
                         $("#f_house_owner").text(response.data.house_owner);
                         $("#f_household_education").text(response.data.household_education);
@@ -1968,7 +1968,7 @@
                 },
                 success: function(response) {
                     if (response.status == 200) {
-                        alert("Forwarded to finance manager");
+                        alert("Forwarded to finance manager");      
                     } else {
                         alert("something went wrong");
 
@@ -2002,6 +2002,9 @@
                     if (response.status == 200) {
                         alert("Request for change updated");
                         $('#rem_modal').modal('hide');
+                         $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");
                     } else {
                         alert("Something went wrong");
                     }
@@ -2092,8 +2095,9 @@
                     type: 'GET',
                     success: function(response) {
                         alert('Post-Funding approved successfully!');
-                        location.reload();
-                    },
+ $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");                    },
                     error: function(xhr) {
                         alert('Something went wrong!');
                     }
@@ -2190,8 +2194,9 @@
                     alert('Edit request submitted successfully!');
                     $('#pfEditModal').modal('hide');
                     $('#pf_edit_form')[0].reset();
-                    location.reload(); // Optional: refresh the table
-                },
+ $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");                },
                 error: function() {
                     alert('Something went wrong. Please try again.');
                 }

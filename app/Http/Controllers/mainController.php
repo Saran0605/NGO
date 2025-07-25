@@ -62,6 +62,8 @@ class mainController extends Controller
                 'name'=> $user->name,   
                 'email'=> $user->email,
                 'user_id'=> $user->id,
+                'mobile'=>$user->mobile,
+                'location'=>$user->location,
                 'role'=>$user->role
                 
             ]);
@@ -124,7 +126,6 @@ class mainController extends Controller
             'sf_no' => 'required',
             'land_benefit' => 'required',
             'soil_type' => 'required',
-            'inspection' => 'required',
             'approved_by' => 'required',
             'inspection_date' => 'required',
             'approval_date' => 'required',
@@ -172,7 +173,11 @@ class mainController extends Controller
         $form->household_education = $req->education;
         $form->age = $req->age;
         $form->district = $req->district;
+<<<<<<< HEAD
        
+=======
+        
+>>>>>>> 05c42563e46e6ed964244fcac2ee436132e6600c
         $form->lat = $req->lat;
         $form->lon = $req->lon;
         $form->status = 1;
@@ -192,6 +197,8 @@ class mainController extends Controller
     $landForm->area_irrigated = $req->areaIrrigated;
     $landForm->irrigated_lands = $req->irrigatedLand;
     $landForm->crop_season = $req->cropSeason;
+    $landForm->taluk = $req->taluk;
+    $landForm->firka = $req->firca;
     $landForm->livestocks = implode(',', $req->livestock);
     $landForm->taluk = $req->taluk;
     $landForm->firka = $req->firca;
@@ -361,8 +368,7 @@ class mainController extends Controller
         $form->toilet_cond = $req->toiletWorking;
         $form->age = $req->age;
         $form->district = $req->district;
-        $form->taluk = $req->taluk;
-        $form->firca = $req->firca;
+       
         $form->lat = $req->lat;
         $form->lon = $req->lon;
         $form->household_education = $req->education;
@@ -384,7 +390,10 @@ class mainController extends Controller
  $pondForm->irrigated_lands = $req->irrigatedLand;
  $pondForm->crop_season = $req->cropSeason;
  $pondForm->area_irrigated = $req->area_irrigated;
+
  $pondForm->area_benefited = $req->areaBenefitted;
+  $pondForm->taluk = $req->taluk;
+        $pondForm->firka = $req->firca;
 
  $pondForm->livestocks = implode(',', $req->livestock);
 
@@ -543,8 +552,7 @@ return response()->json(['status' => 200, 'message' => 'inserted succesfully']);
         $form->potability = implode(',', $req->potability);
         $form->age = $req->age;
         $form->district = $req->district;
-        $form->taluk = $req->taluk;
-        $form->firca = $req->firca;
+       
         $form->lat = $req->lat;
         $form->lon = $req->lon;
         $form->domestic_water =  implode(',', $req->domesticWater);
@@ -567,8 +575,10 @@ return response()->json(['status' => 200, 'message' => 'inserted succesfully']);
     $landForm->area_irrigated = $req->areaIrrigated;
     $landForm->irrigated_lands = $req->irrigatedLand;
     $landForm->crop_season = $req->cropSeason;
+     $landForm->taluk = $req->taluk;
+        $landForm->firka = $req->firca;
     $landForm->livestocks = implode(',', $req->livestock);
-    $landForm->plantations = implode(',', $req->plantation);
+    $landForm->plantaions = implode(',', $req->plantation);
 
 
 
@@ -580,8 +590,7 @@ return response()->json(['status' => 200, 'message' => 'inserted succesfully']);
     $landForm->site_app = $req->approved_by;
     $landForm->date_of_ins = $req->inspection_date;
     $landForm->date_of_app = $req->approval_date;
-    $landForm->type_of_work = implode(',', $req->workType); // Convert array to string
-    $landForm->area_benefited = $req->areaBenefited;
+    $landForm->area_benefited_by_proposal = $req->areaBenefited;
     $landForm->any_other_works = $req->otherWorks;
     $landForm->p_contribution = $req->pradanContribution;
     $landForm->f_contribution = $req->farmerContribution;
@@ -735,31 +744,7 @@ $form3 = Form::where('form_type', 'plant')
     return response()->json(["status"=>200,"message"=>"done"]);
 }
 
-public function measure_submit(Request $req){
-    $req->validate([
-        'meas_id' => 'required',
-        'length' => 'required',
-        'breadth' => 'required',
-        'depth' => 'required',
-        'volume' => 'required',
-    ]);
 
-    // Create a new Measurement entry
-    $measurement = new Measurement();
-    $measurement->form_id = $req->meas_id;
-    $measurement->len = $req->length;
-    $measurement->bre = $req->breadth;
-    $measurement->dep = $req->depth;
-    $measurement->vol = $req->volume;
-    $measurement->save();
-
-    Form::where('id', $req->meas_id)->update(['status' => 3]);
-
-
-    return response()->json(["status"=>200,"message"=>"done"]);
-
-
-}
 public function getDocument(Request $request)
 {
     $form_id = $request->form_id;
@@ -971,7 +956,11 @@ public function updateBankDetails(Request $request)
             'branch' => $request->branch,
             'ifsc_code' => $request->ifsc_code
         ]);
-
+$form = Form::find($request->form_id);
+    if ($form) {
+        $form->status = 1;
+        $form->save();
+    }
         return response()->json(['success' => true, 'message' => 'Bank details updated successfully']);
     }
 
@@ -1013,6 +1002,11 @@ public function updateFarmerDetails(Request $request)
         'lon' => $request->lon,
         'mcode' => $request->mcode,
     ]);
+    $form = Form::find($request->form_id); // Assuming Form.id = ed_land_id
+    if ($form) {
+        $form->status = 1;
+        $form->save();
+    }
 
     return response()->json(['message' => 'Form updated successfully']);
 }
@@ -1052,6 +1046,11 @@ public function updatePond(Request $request)
         'f_contribution' => $request->p_fcont,
         'total_est' => $request->total,
     ]);
+    $form = Form::find($request->pond_id); // Assuming Form.id = ed_land_id
+    if ($form) {
+        $form->status = 1;
+        $form->save();
+    }
 
     return response()->json(['success' => true]);
 }
@@ -1096,6 +1095,11 @@ public function updatePlantForm(Request $request)
             'f_contribution' => $request->pl_farmer_contribution,
             'total_est' => $request->pl_total_amount
         ]);
+        $form = Form::find($request->plant_id); // Assuming Form.id = ed_land_id
+    if ($form) {
+        $form->status = 1;
+        $form->save();
+    }
 
         return response()->json(['success' => true, 'message' => 'Updated successfully']);
     }
@@ -1120,6 +1124,11 @@ public function updateLandForm(Request $request)
         'date_of_ins', 'date_of_app', 'type_of_work', 'area_benefited', 'any_other_works',
         'p_contribution', 'f_contribution', 'total_est', 'area_benefited_postfunding'
     ]));
+      $form = Form::find($request->ed_land_id); // Assuming Form.id = ed_land_id
+    if ($form) {
+        $form->status = 1;
+        $form->save();
+    }
 
     return response()->json(['success' => 'Land form updated successfully']);
 }

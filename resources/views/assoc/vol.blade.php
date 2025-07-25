@@ -31,10 +31,10 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
             <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
-                <a class="navbar-brand brand-logo me-5" href="{{route('vol')}}"><img src="{{ asset('assets/images/icons/Pradan-logo-title.png')}}" class="me-2"
-                        alt="logo" /></a>
-                <a class="navbar-brand brand-logo-mini" href="{{route('vol')}}"><img src="{{asset('assets/images/icons/Pradan-logo-icon.png')}}"
-                        alt="logo" /></a>
+                <a class="navbar-brand brand-logo me-5" href="{{route('vol')}}"><img
+                        src="{{ asset('assets/images/icons/Pradan-logo-title.png')}}" class="me-2" alt="logo" /></a>
+                <a class="navbar-brand brand-logo-mini" href="{{route('vol')}}"><img
+                        src="{{asset('assets/images/icons/Pradan-logo-icon.png')}}" alt="logo" /></a>
             </div>
             <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
                 <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -45,7 +45,7 @@
 
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
-                            <img src="assets/images/faces/face15.jpg" alt="profile" />
+                            <img src="assets/images/faces/user.png" alt="profile" />
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
                             aria-labelledby="profileDropdown">
@@ -112,15 +112,23 @@
                             <div class="row">
                                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
                                     <h3 class="font-weight-bold">Welcome {{ session('name') }} </h3>
-                                    <h6 class="font-weight-normal mb-0">Volunteer #{{ session('user_id')}}</h6>
+                                    <h6 class="font-weight-normal mb-0">Associate #{{ session('user_id')}}</h6>
                                 </div>
                                 <div class="col-12 col-xl-4">
                                     <div class="justify-content-end d-flex">
+                                        @php
+                                        use Carbon\Carbon;
+                                        $today = Carbon::now();
+                                        @endphp
+
                                         <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
                                             <button class="btn btn-sm btn-light bg-white" type="button"
                                                 id="dropdownMenuDate2" data-bs-toggle="dropdown" aria-haspopup="true"
                                                 aria-expanded="true">
-                                                <i class="mdi mdi-calendar"></i> Today (10 Jan 2021) </button>
+                                                <i class="mdi mdi-calendar"></i>
+                                                {{ $today->format('l, d M Y') }} {{-- e.g. Monday, 15 May 2025 --}}
+                                            </button>
+
                                         </div>
                                     </div>
                                 </div>
@@ -134,8 +142,11 @@
 
                                     <div class="col-md-4 d-flex align-items-center">
                                         <div class="card shadow card-tale text-center rounded-circle">
-                                            <div class="card-body d-flex flex-column align-items-center justify-content-center">
-                                                <img src="assets/images/faces/face15.jpg" alt="Profile Picture" class="img-fluid rounded-circle" style="width: 140px; height: 140px; object-fit: cover;">
+                                            <div
+                                                class="card-body d-flex flex-column align-items-center justify-content-center">
+                                                <img src="assets/images/faces/user.png" alt="Profile Picture"
+                                                    class="img-fluid rounded-circle"
+                                                    style="width: 140px; height: 140px; object-fit: cover;">
                                             </div>
                                         </div>
                                     </div>
@@ -146,9 +157,9 @@
                                                 <h5 class="card-title text-dark">User Details</h5>
                                                 <p><strong>Name:</strong> {{ session('name') }}</p>
                                                 <p><strong>User ID:</strong> {{ session('user_id') }}</p>
-                                                <p><strong>DOB:</strong> Fetch from DB</p>
+                                                <p><strong>Mobile:</strong>{{ session('mobile') }}</p>
                                                 <p><strong>Email:</strong> {{ session('email') }}</p>
-                                                <p><strong>Phone:</strong> Fetch from DB</p>
+                                                <p><strong>Location:</strong>{{session('location')}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -207,10 +218,12 @@
                 </div>
                 <footer class="footer">
                     <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2025. Developed and Maintained By <b>TIH & Developers Unit</b>.
+                        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2025.
+                            Developed and Maintained By <b>TIH & Developers Unit</b>.
                             All rights reserved.</span>
 
-                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Contact Us <a href="https://www.linkedin.com/company/professional-assistance-for-development-action/"><i
+                        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Contact Us <a
+                                href="https://www.linkedin.com/company/professional-assistance-for-development-action/"><i
                                     class="ti-linkedin ms-2"></a></i></span>
                     </div>
                 </footer>

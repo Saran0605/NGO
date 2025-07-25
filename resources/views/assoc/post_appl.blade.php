@@ -449,7 +449,7 @@
                                                                 <td>
                                                                     @if($f->status == 6)
                                                                     <button type="button"
-                                                                        class="btn btn-primary pf_land"
+                                                                        class="btn btn-primary pf_pond"
                                                                         value="{{ $f->id }}">
                                                                         Post Fund
                                                                     </button>
@@ -531,7 +531,7 @@
                                                                 <td>
                                                                     @if($f->status == 6)
                                                                     <button type="button"
-                                                                        class="btn btn-primary pf_land"
+                                                                        class="btn btn-primary pf_plant"
                                                                         value="{{ $f->id }}">
                                                                         Post Fund
                                                                     </button>
@@ -1183,117 +1183,119 @@
     </div>
 
     <!-- Edit PF Modal -->
-<div class="modal fade" id="editPFModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <form id="editPFForm">
-      @csrf
-      <input type="hidden" name="form_id" id="edit_form_id">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Edit Post Funding - Land</h5>
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body">
-          <div class="form-group">
-            <label>Area PF</label>
-            <input type="text" class="form-control" id="area_pf" name="area_pf" required>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Update</button>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-
-<!-- Modal -->
-<div class="modal fade" id="editPondPFModal" tabindex="-1" role="dialog" aria-labelledby="pondPFModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <form id="editPondPFForm">
-      @csrf
-      <input type="hidden" name="form_id" id="edit_pond_form_id">
-      <div class="modal-content">
-        <div class="modal-header bg-warning text-white">
-          <h5 class="modal-title" id="pondPFModalLabel">Edit Pond Post Funding</h5>
-          <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <div class="form-group">
-                <label>Length</label>
-                <input type="number" step="0.01" name="len_pf" id="len_pf" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label>Breadth</label>
-                <input type="number" step="0.01" name="bre_pf" id="bre_pf" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label>Depth</label>
-                <input type="number" step="0.01" name="dep_pf" id="dep_pf" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label>Volume</label>
-                <input type="number" step="0.01" name="vol_pf" id="vol_pf" class="form-control" readonly>
-            </div>
-            <div class="form-group">
-                <label>Area Benefited</label>
-                <input type="text" name="area_pf" id="area_pf1" class="form-control" required>
-            </div>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-primary">Update</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        </div>
-      </div>
-    </form>
-  </div>
-</div>
-
-<!-- Edit Post Fund - Plant Form Modal -->
-<div class="modal fade" id="editPlantPFModal" tabindex="-1" role="dialog" aria-labelledby="editPlantPFModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <form id="editPlantPFForm">
-            @csrf
-            <input type="hidden" name="form_id" id="plant_form_id">
-            <div class="modal-content">
-                <div class="modal-header bg-warning text-white">
-                    <h5 class="modal-title">Edit Plant Post Funding</h5>
-                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
-                        <span>&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label>No. of Plants</label>
-                        <input type="text" class="form-control" name="nos" id="plant_nos" required>
+    <div class="modal fade" id="editPFModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <form id="editPFForm">
+                @csrf
+                <input type="hidden" name="form_id" id="edit_form_id">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Edit Post Funding - Land</h5>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
-                    <div class="form-group">
-                        <label>Price</label>
-                        <input type="text" class="form-control" name="price" id="plant_price" required>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Area PF</label>
+                            <input type="text" class="form-control" id="area_pf" name="area_pf" required>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label>Other Expenses</label>
-                        <input type="text" class="form-control" name="other_exp" id="plant_other_exp" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Total Nos</label>
-                        <input type="text" class="form-control" name="total_nos" id="plant_total_nos" required>
-                    </div>
-                    <div class="form-group">
-                        <label>Total Price</label>
-                        <input type="text" class="form-control" name="total_price" id="plant_total_price" required>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Update</button>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-success">Update</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                </div>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
-</div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="editPondPFModal" tabindex="-1" role="dialog" aria-labelledby="pondPFModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <form id="editPondPFForm">
+                @csrf
+                <input type="hidden" name="form_id" id="edit_pond_form_id">
+                <div class="modal-content">
+                    <div class="modal-header bg-warning text-white">
+                        <h5 class="modal-title" id="pondPFModalLabel">Edit Pond Post Funding</h5>
+                        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Length</label>
+                            <input type="number" step="0.01" name="len_pf" id="len_pf" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Breadth</label>
+                            <input type="number" step="0.01" name="bre_pf" id="bre_pf" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Depth</label>
+                            <input type="number" step="0.01" name="dep_pf" id="dep_pf" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Volume</label>
+                            <input type="number" step="0.01" name="vol_pf" id="vol_pf" class="form-control" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label>Area Benefited</label>
+                            <input type="text" name="area_pf" id="area_pf1" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Edit Post Fund - Plant Form Modal -->
+    <div class="modal fade" id="editPlantPFModal" tabindex="-1" role="dialog" aria-labelledby="editPlantPFModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <form id="editPlantPFForm">
+                @csrf
+                <input type="hidden" name="form_id" id="plant_form_id">
+                <div class="modal-content">
+                    <div class="modal-header bg-warning text-white">
+                        <h5 class="modal-title">Edit Plant Post Funding</h5>
+                        <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>No. of Plants</label>
+                            <input type="text" class="form-control" name="nos" id="plant_nos" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Price</label>
+                            <input type="text" class="form-control" name="price" id="plant_price" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Other Expenses</label>
+                            <input type="text" class="form-control" name="other_exp" id="plant_other_exp" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Total Nos</label>
+                            <input type="text" class="form-control" name="total_nos" id="plant_total_nos" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Total Price</label>
+                            <input type="text" class="form-control" name="total_price" id="plant_total_price" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Update</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 
 
 
@@ -1415,31 +1417,31 @@
             success: function(response) {
                 if (response.status == 200) {
                     console.log(response.data);
-                   $("#f_name").text(response.data.farmer_name);
-                        $("#f_spouse").text(response.data.spouse);
-                        $("#f_mobile").text(response.data.mobile);
-                        $("#f_gender").text(response.data.gender);
-                        $("#f_card").text(response.data.id_type);
-                        $("#f_member").text(response.data.h_members);
-                        $("#f_number").text(response.data.id_number);
-                        $("#f_hamlet").text(response.data.hamlet);
-                        $("#f_panchayat").text(response.data.panchayat);
-                        $("#f_block").text(response.data.block);
-                        $("#f_household_type").text(response.data.type_of_households);
-                        $("#f_special_category").text(response.data.special_catog);
-                        $("#f_caste").text(response.data.caste);
-                        $("#f_occupation").text(response.data.hh_occupation);
-                        $("#f_house_type").text(response.data.type_of_house);
-                        $("#f_drinking_water").text(response.data.drinking_water);
-                        $("#f_potability").text(response.data.potability);
-                        $("#f_domestic_water").text(response.data.domestic_water);
-                        $("#f_toilet_availability").text(response.data.toilet_avail;
-                        $("#f_toilet_condition").text(response.data.toilet_cond);
-                        $("#f_house_owner").text(response.data.house_owner);
-                        $("#f_household_education").text(response.data.household_education);
-                        $("#f_latitude").text(response.data.lat);
-                        $("#f_longitude").text(response.data.lon);
-                        $("#f_mcode").text(response.data.mcode);
+                    $("#f_name").text(response.data.farmer_name);
+                    $("#f_spouse").text(response.data.spouse);
+                    $("#f_mobile").text(response.data.mobile);
+                    $("#f_gender").text(response.data.gender);
+                    $("#f_card").text(response.data.id_type);
+                    $("#f_member").text(response.data.h_members);
+                    $("#f_number").text(response.data.id_number);
+                    $("#f_hamlet").text(response.data.hamlet);
+                    $("#f_panchayat").text(response.data.panchayat);
+                    $("#f_block").text(response.data.block);
+                    $("#f_household_type").text(response.data.type_of_households);
+                    $("#f_special_category").text(response.data.special_catog);
+                    $("#f_caste").text(response.data.caste);
+                    $("#f_occupation").text(response.data.hh_occupation);
+                    $("#f_house_type").text(response.data.type_of_house);
+                    $("#f_drinking_water").text(response.data.drinking_water);
+                    $("#f_potability").text(response.data.potability);
+                    $("#f_domestic_water").text(response.data.domestic_water);
+                    $("#f_toilet_availability").text(response.data.toilet_avail);
+                    $("#f_toilet_condition").text(response.data.toilet_cond);
+                    $("#f_house_owner").text(response.data.house_owner);
+                    $("#f_household_education").text(response.data.household_education);
+                    $("#f_latitude").text(response.data.lat);
+                    $("#f_longitude").text(response.data.lon);
+                    $("#f_mcode").text(response.data.mcode);
 
                     $("#farmerdet_modal").modal("show");
                 }
@@ -1457,28 +1459,28 @@
             url: `/fetch_land_det/${form_id}`,
             success: function(response) {
                 if (response.status == 200) {
-                   $("#l_ownership").text(response.data.ownership);
-                        $("#l_well_irrigation").text(response.data.well_irrigation); // Newly added
-                        $("#l_area_irrigated").text(response.data.area_irrigated); // Newly added
-                        $("#l_irrigated_lands").text(response.data.irrigated_lands); // Newly added
-                        $("#l_patta").text(response.data.patta);
-                        $("#l_tarea").text(response.data.total_area);
-                        $("#l_revenue").text(response.data.revenue);
-                        $("#l_sf").text(response.data.sf_no);
-                        $("#l_soil").text(response.data.soil_type);
-                        $("#l_benefit").text(response.data.land_to_benefit);
-                        $("#l_field").text(response.data.field_insp);
-                        $("#l_site").text(response.data.site_app);
-                        $("#l_doi").text(response.data.date_of_ins);
-                        $("#l_doa").text(response.data.date_of_app);
-                        $("#l_type").text(response.data.type_of_work);
-                        $("#l_area").text(response.data.area_benefited);
-                        $("#l_oth").text(response.data.any_other_works);
-                        $("#l_pradan").text(response.data.p_contribution);
-                        $("#l_farmer").text(response.data.f_contribution);
-                        $("#l_total").text(response.data.total_est);
+                    $("#l_ownership").text(response.data.ownership);
+                    $("#l_well_irrigation").text(response.data.well_irrigation); // Newly added
+                    $("#l_area_irrigated").text(response.data.area_irrigated); // Newly added
+                    $("#l_irrigated_lands").text(response.data.irrigated_lands); // Newly added
+                    $("#l_patta").text(response.data.patta);
+                    $("#l_tarea").text(response.data.total_area);
+                    $("#l_revenue").text(response.data.revenue);
+                    $("#l_sf").text(response.data.sf_no);
+                    $("#l_soil").text(response.data.soil_type);
+                    $("#l_benefit").text(response.data.land_to_benefit);
+                    $("#l_field").text(response.data.field_insp);
+                    $("#l_site").text(response.data.site_app);
+                    $("#l_doi").text(response.data.date_of_ins);
+                    $("#l_doa").text(response.data.date_of_app);
+                    $("#l_type").text(response.data.type_of_work);
+                    $("#l_area").text(response.data.area_benefited);
+                    $("#l_oth").text(response.data.any_other_works);
+                    $("#l_pradan").text(response.data.p_contribution);
+                    $("#l_farmer").text(response.data.f_contribution);
+                    $("#l_total").text(response.data.total_est);
 
-                        $("#landdet_modal").modal("show");
+                    $("#landdet_modal").modal("show");
 
                 }
             }
@@ -1522,31 +1524,31 @@
             success: function(response) {
                 console.log(response);
                 if (response.status == 200) {
-                   $("#p_owner").text(response.data.ownership);
-                        $("#p_patta").text(response.data.patta);
-                        $("#p_tarea").text(response.data.total_area);
-                        $("#p_irrigated_lands").text(response.data.irrigated_lands); // Newly added
-                        $("#p_revenue").text(response.data.revenue);
-                        $("#p_livestock").text(response.data.livestocks); // Newly added
-                        $("#p_crop_season").text(response.data.crop_season); // Newly added
-                        $("#p_well_irrigation").text(response.data.well_irrigation); // Newly added
-                        $("#p_sf").text(response.data.sf_number);
-                        $("#p_soil").text(response.data.soil_type);
-                        $("#p_land").text(response.data.land_to_benefit);
-                        $("#p_field").text(response.data.field_insp);
-                        $("#p_site").text(response.data.site_app);
-                        $("#p_type_of_work").text(response.data.type_of_work); // Newly added
-                        $("#p_doi").text(response.data.date_of_ins);
-                        $("#p_doa").text(response.data.date_of_app);
-                        $("#p_len").text(response.data.length);
-                        $("#p_dep").text(response.data.depth);
-                        $("#p_breadth").text(response.data.breadth); // Newly added
-                        $("#p_vol").text(response.data.volume);
-                        $("#p_pcont").text(response.data.p_contribution);
-                        $("#p_fcont").text(response.data.f_contribution);
-                        $("#total").text(response.data.total_est);
+                    $("#p_owner").text(response.data.ownership);
+                    $("#p_patta").text(response.data.patta);
+                    $("#p_tarea").text(response.data.total_area);
+                    $("#p_irrigated_lands").text(response.data.irrigated_lands); // Newly added
+                    $("#p_revenue").text(response.data.revenue);
+                    $("#p_livestock").text(response.data.livestocks); // Newly added
+                    $("#p_crop_season").text(response.data.crop_season); // Newly added
+                    $("#p_well_irrigation").text(response.data.well_irrigation); // Newly added
+                    $("#p_sf").text(response.data.sf_number);
+                    $("#p_soil").text(response.data.soil_type);
+                    $("#p_land").text(response.data.land_to_benefit);
+                    $("#p_field").text(response.data.field_insp);
+                    $("#p_site").text(response.data.site_app);
+                    $("#p_type_of_work").text(response.data.type_of_work); // Newly added
+                    $("#p_doi").text(response.data.date_of_ins);
+                    $("#p_doa").text(response.data.date_of_app);
+                    $("#p_len").text(response.data.length);
+                    $("#p_dep").text(response.data.depth);
+                    $("#p_breadth").text(response.data.breadth); // Newly added
+                    $("#p_vol").text(response.data.volume);
+                    $("#p_pcont").text(response.data.p_contribution);
+                    $("#p_fcont").text(response.data.f_contribution);
+                    $("#total").text(response.data.total_est);
 
-                        $("#ponddet_modal").modal("show");
+                    $("#ponddet_modal").modal("show");
 
 
                 }
@@ -1568,30 +1570,30 @@
             success: function(response) {
                 console.log(response);
                 $("#plant_ownership").text(response.data.ownership);
-                    $("#plant_well_irrigation").text(response.data.well_irrigation);
-                    $("#plant_area_irrigated").text(response.data.area_irrigated);
-                    $("#plant_irrigated_lands").text(response.data.irrigated_lands);
-                    $("#plant_patta").text(response.data.patta);
-                    $("#plant_total_area").text(response.data.total_area);
-                    $("#plant_revenue").text(response.data.revenue);
-                    $("#plant_crop_season").text(response.data.crop_season);
-                    $("#plant_livestock").text(response.data.livestocks);
-                    $("#plant_type").text(response.data.plantations);
-                    $("#plant_sf_no").text(response.data.sf_number);
-                    $("#plant_soil_type").text(response.data.soil_type);
-                    $("#plant_land_benefit").text(response.data.land_to_benefit);
-                    $("#plant_field_inspection").text(response.data.field_insp);
-                    $("#plant_site_approval").text(response.data.site_app);
-                    $("#plant_date_of_inspection").text(response.data.date_of_ins);
-                    $("#plant_date_of_approval").text(response.data.date_of_app);
-                    $("#plant_type_of_work").text(response.data.type_of_work);
-                    $("#plant_area_benefit").text(response.data.area_benefited);
-                    $("#plant_other_works").text(response.data.any_other_works);
-                    $("#plant_pradan_contribution").text(response.data.p_contribution);
-                    $("#plant_farmer_contribution").text(response.data.f_contribution);
-                    $("#plant_total_amount").text(response.data.total_est);
+                $("#plant_well_irrigation").text(response.data.well_irrigation);
+                $("#plant_area_irrigated").text(response.data.area_irrigated);
+                $("#plant_irrigated_lands").text(response.data.irrigated_lands);
+                $("#plant_patta").text(response.data.patta);
+                $("#plant_total_area").text(response.data.total_area);
+                $("#plant_revenue").text(response.data.revenue);
+                $("#plant_crop_season").text(response.data.crop_season);
+                $("#plant_livestock").text(response.data.livestocks);
+                $("#plant_type").text(response.data.plantations);
+                $("#plant_sf_no").text(response.data.sf_number);
+                $("#plant_soil_type").text(response.data.soil_type);
+                $("#plant_land_benefit").text(response.data.land_to_benefit);
+                $("#plant_field_inspection").text(response.data.field_insp);
+                $("#plant_site_approval").text(response.data.site_app);
+                $("#plant_date_of_inspection").text(response.data.date_of_ins);
+                $("#plant_date_of_approval").text(response.data.date_of_app);
+                $("#plant_type_of_work").text(response.data.type_of_work);
+                $("#plant_area_benefit").text(response.data.area_benefited);
+                $("#plant_other_works").text(response.data.any_other_works);
+                $("#plant_pradan_contribution").text(response.data.p_contribution);
+                $("#plant_farmer_contribution").text(response.data.f_contribution);
+                $("#plant_total_amount").text(response.data.total_est);
 
-                    $("#plantdet_modal").modal("show");
+                $("#plantdet_modal").modal("show");
             }
 
         })
@@ -1599,14 +1601,7 @@
 
     });
 
-    $(document).on("click", ".meas", function(e) {
-        e.preventDefault();
-        var form_id = $(this).val();
-        $("#meas_id").val(form_id);
-        $("#measure_modal").modal('show');
 
-
-    });
 
     $(document).on("submit", "#measurement_form", function(e) {
         e.preventDefault();
@@ -1736,11 +1731,7 @@
         });
     });
 
-    $(document).on("click", ".pf_land", function(e) {
-                alert('Something went wrong.');
-            }
-        });
-    });
+
 
     $(document).on("click", ".pf_land", function(e) {
         e.preventDefault();
@@ -1778,8 +1769,17 @@
             contentType: false,
             success: function(response) {
                 if (response.status == 200) {
-                    alert("postfunding submitted");
+                    Swal.fire({
+                        title: "Success!",
+                        text: "Post Fund Submitted Successfully",
+                        icon: "success",
+                        confirmButtonText: "OK"
+                    });
+                    $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");
                 }
+
             }
         })
     });
@@ -1795,7 +1795,15 @@
             contentType: false,
             success: function(response) {
                 if (response.status == 200) {
-                    alert("postfunding submitted");
+                    Swal.fire({
+                        title: "Success!",
+                        text: "Post Fund Submitted Successfully",
+                        icon: "success",
+                        confirmButtonText: "OK"
+                    });
+                    $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");
                 }
             }
         })
@@ -1812,112 +1820,140 @@
             contentType: false,
             success: function(response) {
                 if (response.status == 200) {
-                    alert("postfunding submitted");
+                    Swal.fire({
+                        title: "Success!",
+                        text: "Post Fund Submitted Successfully",
+                        icon: "success",
+                        confirmButtonText: "OK"
+                    });
+                    $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");
                 }
             }
         })
     });
 
-    $(document).on('click', '.edit_pf_land', function () {
-    var formId = $(this).val();
-    $.ajax({
-        url: '/get-land-pf-details/' + formId,
-        type: 'GET',
-        success: function (data) {
-            $('#edit_form_id').val(formId);
-            $('#area_pf').val(data.area_pf);
-            $('#editPFModal').modal('show');
-        }
-    });
-});
-$('#editPFForm').on('submit', function (e) {
-    e.preventDefault();
-    $.ajax({
-        url: "{{ route('update.land.pf') }}",
-        method: 'POST',
-        data: $(this).serialize(),
-        success: function (response) {
-            if (response.success) {
-                $('#editPFModal').modal('hide');
-                alert('Post Funding details updated successfully');
-                location.reload(); // Optional: refresh the table
+    $(document).on('click', '.edit_pf_land', function() {
+        var formId = $(this).val();
+        $.ajax({
+            url: '/get-land-pf-details/' + formId,
+            type: 'GET',
+            success: function(data) {
+                $('#edit_form_id').val(formId);
+                $('#area_pf').val(data.area_pf);
+                $('#editPFModal').modal('show');
             }
-        }
+        });
     });
-});
-
-// Show modal and load data
-$(document).on('click', '.edit_pf_pond', function () {
-    var formId = $(this).val();
-    $.get('/edit-pf-pond/' + formId, function (data) {
-        $('#edit_pond_form_id').val(data.form_id);
-        $('#len_pf').val(data.len_pf);
-        $('#bre_pf').val(data.bre_pf);
-        $('#dep_pf').val(data.dep_pf);
-        $('#vol_pf').val(data.vol_pf);
-        $('#area_pf1').val(data.area_pf);
-        $('#editPondPFModal').modal('show');
-    });
-});
-
-// Auto calculate volume
-$('#len_pf, #bre_pf, #dep_pf').on('input', function () {
-    const len = parseFloat($('#len_pf').val()) || 0;
-    const bre = parseFloat($('#bre_pf').val()) || 0;
-    const dep = parseFloat($('#dep_pf').val()) || 0;
-    $('#vol_pf').val((len * bre * dep).toFixed(2));
-});
-
-// Submit form
-$('#editPondPFForm').submit(function (e) {
-    e.preventDefault();
-    $.ajax({
-        url: '/update-pf-pond',
-        method: 'POST',
-        data: $(this).serialize(),
-        success: function (response) {
-            if (response.success) {
-                alert('Post Funding updated successfully!');
-                $('#editPondPFModal').modal('hide');
-                location.reload(); // Or update the row dynamically
+    $('#editPFForm').on('submit', function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: "{{ route('update.land.pf') }}",
+            method: 'POST',
+            data: $(this).serialize(),
+            success: function(response) {
+                if (response.success) {
+                    $('#editPFModal').modal('hide');
+                    Swal.fire({
+                        title: "Success!",
+                        text: "Post Funding details updated successfully",
+                        icon: "success",
+                        confirmButtonText: "OK"
+                    });
+                    $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");
+                }
             }
-        }
+        });
     });
-});
-$(document).on('click', '.edit_pf_plant', function () {
-    var form_id = $(this).val();
-    $('#plant_form_id').val(form_id);
 
-    $.ajax({
-        url: '/getPlantPostFund/' + form_id,
-        type: 'GET',
-        success: function (data) {
-            $('#plant_nos').val(data.nos);
-            $('#plant_price').val(data.price);
-            $('#plant_other_exp').val(data.other_exp);
-            $('#plant_total_nos').val(data.total_nos);
-            $('#plant_total_price').val(data.total_price);
-            $('#editPlantPFModal').modal('show');
-        }
+    // Show modal and load data
+    $(document).on('click', '.edit_pf_pond', function() {
+        var formId = $(this).val();
+        $.get('/edit-pf-pond/' + formId, function(data) {
+            $('#edit_pond_form_id').val(data.form_id);
+            $('#len_pf').val(data.len_pf);
+            $('#bre_pf').val(data.bre_pf);
+            $('#dep_pf').val(data.dep_pf);
+            $('#vol_pf').val(data.vol_pf);
+            $('#area_pf1').val(data.area_pf);
+            $('#editPondPFModal').modal('show');
+        });
     });
-});
-$('#editPlantPFForm').submit(function (e) {
-    e.preventDefault();
 
-    $.ajax({
-        url: '/updatePlantPostFund',
-        type: 'POST',
-        data: $(this).serialize(),
-        success: function (response) {
-            if (response.success) {
-                $('#editPlantPFModal').modal('hide');
-                location.reload();
+    // Auto calculate volume
+    $('#len_pf, #bre_pf, #dep_pf').on('input', function() {
+        const len = parseFloat($('#len_pf').val()) || 0;
+        const bre = parseFloat($('#bre_pf').val()) || 0;
+        const dep = parseFloat($('#dep_pf').val()) || 0;
+        $('#vol_pf').val((len * bre * dep).toFixed(2));
+    });
+
+    // Submit form
+    $('#editPondPFForm').submit(function(e) {
+        e.preventDefault();
+        $.ajax({
+            url: '/update-pf-pond',
+            method: 'POST',
+            data: $(this).serialize(),
+            success: function(response) {
+                if (response.success) {
+                    $('#editPondPFModal').modal('hide');
+                     Swal.fire({
+                        title: "Success!",
+                        text: "Post Funding details updated successfully",
+                        icon: "success",
+                        confirmButtonText: "OK"
+                    });
+                    $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");
+                }
             }
-        }
+        });
     });
-});
+    $(document).on('click', '.edit_pf_plant', function() {
+        var form_id = $(this).val();
+        $('#plant_form_id').val(form_id);
 
+        $.ajax({
+            url: '/getPlantPostFund/' + form_id,
+            type: 'GET',
+            success: function(data) {
+                $('#plant_nos').val(data.nos);
+                $('#plant_price').val(data.price);
+                $('#plant_other_exp').val(data.other_exp);
+                $('#plant_total_nos').val(data.total_nos);
+                $('#plant_total_price').val(data.total_price);
+                $('#editPlantPFModal').modal('show');
+            }
+        });
+    });
+    $('#editPlantPFForm').submit(function(e) {
+        e.preventDefault();
 
+        $.ajax({
+            url: '/updatePlantPostFund',
+            type: 'POST',
+            data: $(this).serialize(),
+            success: function(response) {
+                if (response.success) {
+                    $('#editPlantPFModal').modal('hide');
+                     Swal.fire({
+                        title: "Success!",
+                        text: "Post Funding details updated successfully",
+                        icon: "success",
+                        confirmButtonText: "OK"
+                    });
+                    $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");
+                }
+            }
+        });
+    });
     </script>
 
 

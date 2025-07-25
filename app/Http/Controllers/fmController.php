@@ -156,7 +156,7 @@ public function fin_approve(Request $req)
             ], 400);
         }
 
-        $form->status = 7; // Status for PF approval
+        $form->status = 6; // Status for PF approval
         $form->save();
 
         return response()->json([

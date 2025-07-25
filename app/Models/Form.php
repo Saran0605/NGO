@@ -90,8 +90,19 @@ class Form extends Model
 		'remarks'
 	];
 
-	public function bank_details()
-	{
-		return $this->hasMany(BankDetail::class);
-	}
+		public function bankDetail() {
+    return $this->hasOne(BankDetail::class, 'form_id');
+}
+	public function landForm() {
+    return $this->hasOne(LandForm::class, 'form_id');
+}
+
+public function pondForm() {
+    return $this->hasOne(PondForm::class, 'form_id');
+}
+
+public function plantForm() {
+    return $this->hasOne(PlantForm::class, 'form_id');
+}
+
 }

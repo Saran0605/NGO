@@ -45,7 +45,7 @@
 
                     <li class="nav-item nav-profile dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" id="profileDropdown">
-                            <img src="assets/images/faces/face15.jpg" alt="profile" />
+                            <img src="assets/images/faces/user.png" alt="profile" />
                         </a>
                         <div class="dropdown-menu dropdown-menu-right navbar-dropdown"
                             aria-labelledby="profileDropdown">
@@ -110,7 +110,7 @@
                     </li>
                      <li class="nav-item">
                         <a class="nav-link" href="{{ route('tl_mem') }}">
-                            <i class="fas fa-users-cog me-3"></i>
+                            <i class="icon-columns menu-icon"></i>
                             <span class="menu-title">Manage Members</span>
                         </a>
                     </li>
@@ -128,13 +128,21 @@
                                     <h3 class="font-weight-bold">Welcome {{ session('name') }} </h3>
                                     <h6 class="font-weight-normal mb-0">Volunteer #{{ session('user_id')}}</h6>
                                 </div>
-                                <div class="col-12 col-xl-4">
+                               <div class="col-12 col-xl-4">
                                     <div class="justify-content-end d-flex">
+                                        @php
+                                        use Carbon\Carbon;
+                                        $today = Carbon::now();
+                                        @endphp
+
                                         <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
                                             <button class="btn btn-sm btn-light bg-white" type="button"
                                                 id="dropdownMenuDate2" data-bs-toggle="dropdown" aria-haspopup="true"
                                                 aria-expanded="true">
-                                                <i class="mdi mdi-calendar"></i> Today (10 Jan 2021) </button>
+                                                <i class="mdi mdi-calendar"></i>
+                                                {{ $today->format('l, d M Y') }} {{-- e.g. Monday, 15 May 2025 --}}
+                                            </button>
+
                                         </div>
                                     </div>
                                 </div>
@@ -150,25 +158,67 @@
                                     <div class="col-md-4 d-flex align-items-center">
                                         <div class="card shadow card-tale text-center rounded-circle">
                                             <div class="card-body d-flex flex-column align-items-center justify-content-center">
-                                                <img src="assets/images/faces/face15.jpg" alt="Profile Picture" class="img-fluid rounded-circle" style="width: 140px; height: 140px; object-fit: cover;">
+                                                <img src="assets/images/faces/user.png" alt="Profile Picture" class="img-fluid rounded-circle" style="width: 140px; height: 140px; object-fit: cover;">
                                             </div>
                                         </div>
                                     </div>
 
                                     <!-- User Info Card (6 columns) -->
-                                    <div class="col-md-8">
+                                     <div class="col-md-8">
                                         <div class="card shadow card-light-danger h-100 w-100">
                                             <div class="card-body">
                                                 <h5 class="card-title text-dark">User Details</h5>
                                                 <p><strong>Name:</strong> {{ session('name') }}</p>
                                                 <p><strong>User ID:</strong> {{ session('user_id') }}</p>
-                                                <p><strong>DOB:</strong> Fetch from DB</p>
+                                                <p><strong>Mobile:</strong>{{ session('mobile') }}</p>
                                                 <p><strong>Email:</strong> {{ session('email') }}</p>
-                                                <p><strong>Phone:</strong> Fetch from DB</p>
+                                                <p><strong>Location:</strong>{{session('location')}}</p>
                                             </div>
                                         </div>
                                     </div>
 
+                                </div>
+                            </div>
+                        </div>
+                         <div class="col-md-6 grid-margin transparent">
+                            <div class="row">
+                                <div class="col-md-6 mb-4 stretch-card transparent">
+                                    <div class="card card-tale">
+                                        <div class="card-body">
+                                            <p class="mb-4">Applications Submitted</p>
+                                            <p class="fs-30 mb-2 ">{{$totalSubmitted}}</p>
+                                            <p></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-4 stretch-card transparent">
+                                    <div class="card card-dark-blue">
+                                        <div class="card-body">
+                                            <p class="mb-4">Applications Approved</p>
+                                            <p class="fs-30 mb-2">{{$approved}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+                                    <div class="card card-light-blue">
+                                        <div class="card-body">
+                                            <p class="mb-4">Request for edit</p>
+                                            <p class="fs-30 mb-2">{{$changeupdate}}</p>
+                                            <p>
+                                            <p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 stretch-card transparent">
+                                    <div class="card card-light-danger">
+                                        <div class="card-body">
+                                            <p class="mb-4">Applications Completed</p>
+                                            <p class="fs-30 mb-2">{{$completed}}</p>
+                                            <p></p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -1937,6 +1937,9 @@
                             icon: "success",
                             confirmButtonText: "OK"
                         });
+                        $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table"); 
                     } else {
                         alert("something went wrong");
                     }
@@ -1973,7 +1976,7 @@
                         $("#f_drinking_water").text(response.data.drinking_water);
                         $("#f_potability").text(response.data.potability);
                         $("#f_domestic_water").text(response.data.domestic_water);
-                        $("#f_toilet_availability").text(response.data.toilet_avail;
+                        $("#f_toilet_availability").text(response.data.toilet_avail);
                         $("#f_toilet_condition").text(response.data.toilet_cond);
                         $("#f_house_owner").text(response.data.house_owner);
                         $("#f_household_education").text(response.data.household_education);
@@ -2151,7 +2154,14 @@
                 },
                 success: function(response) {
                     if (response.status == 200) {
-                        alert("Forwarded to finance manager");
+ Swal.fire({
+                        title: "Success!",
+                        text: "Forwarded to Finance Manager!",
+                        icon: "success",
+                        confirmButtonText: "OK"
+                    })                        $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table"); 
                     } else {
                         alert("something went wrong");
 
@@ -2183,8 +2193,15 @@
                 contentType: false,
                 success: function(response) {
                     if (response.status == 200) {
-                        alert("Request for change updated");
-                        $('#rem_modal').modal('hide');
+ Swal.fire({
+                        title: "Success!",
+                        text: "Request for Change Updated!",
+                        icon: "success",
+                        confirmButtonText: "OK"
+                    })                          $('#rem_modal').modal('hide');
+                         $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table"); 
                     } else {
                         alert("Something went wrong");
                     }
@@ -2292,56 +2309,81 @@
 
         });
         $(document).on("submit", "#pf_land_form", function(e) {
-            e.preventDefault();
-            var form = new FormData(this);
-            console.log(form);
-            $.ajax({
-                type: "POST",
-                url: "/submit/coor/pf_land",
-                data: form,
-                processData: false,
-                contentType: false,
-                success: function(response) {
-                    if (response.status == 200) {
-                        alert("postfunding submitted");
-                    }
+        e.preventDefault();
+        var form = new FormData(this);
+        console.log(form);
+        $.ajax({
+            type: "POST",
+            url: "/submit/coor/pf_land",
+            data: form,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                if (response.status == 200) {
+                    Swal.fire({
+                        title: "Success!",
+                        text: "Post Fund Submitted Successfully",
+                        icon: "success",
+                        confirmButtonText: "OK"
+                    });
+                    $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");
                 }
-            })
-        });
-        $(document).on("submit", "#pf_pond_form", function(e) {
-            e.preventDefault();
-            var form = new FormData(this);
-            console.log(form);
-            $.ajax({
-                type: "POST",
-                url: "/submit/coor/pf_pond",
-                data: form,
-                processData: false,
-                contentType: false,
-                success: function(response) {
-                    if (response.status == 200) {
-                        alert("postfunding submitted");
-                    }
+
+            }
+        })
+    });
+    $(document).on("submit", "#pf_pond_form", function(e) {
+        e.preventDefault();
+        var form = new FormData(this);
+        console.log(form);
+        $.ajax({
+            type: "POST",
+            url: "/submit/coor/pf_pond",
+            data: form,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                if (response.status == 200) {
+                    Swal.fire({
+                        title: "Success!",
+                        text: "Post Fund Submitted Successfully",
+                        icon: "success",
+                        confirmButtonText: "OK"
+                    });
+                    $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");
                 }
-            })
-        });
-        $(document).on("submit", "#pf_plant_form", function(e) {
-            e.preventDefault();
-            var form = new FormData(this);
-            console.log(form);
-            $.ajax({
-                type: "POST",
-                url: "/submit/coor/pf_plant",
-                data: form,
-                processData: false,
-                contentType: false,
-                success: function(response) {
-                    if (response.status == 200) {
-                        alert("postfunding submitted");
-                    }
+            }
+        })
+    });
+    $(document).on("submit", "#pf_plant_form", function(e) {
+        e.preventDefault();
+        var form = new FormData(this);
+        console.log(form);
+        $.ajax({
+            type: "POST",
+            url: "/submit/coor/pf_plant",
+            data: form,
+            processData: false,
+            contentType: false,
+            success: function(response) {
+                if (response.status == 200) {
+                    Swal.fire({
+                        title: "Success!",
+                        text: "Post Fund Submitted Successfully",
+                        icon: "success",
+                        confirmButtonText: "OK"
+                    });
+                    $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");
                 }
-            })
-        });
+            }
+        })
+    });
 
          $(document).on("click", ".ed_bank", function(e) {
         e.preventDefault();
@@ -2539,20 +2581,40 @@
             data: formData,
             success: function(response) {
                 if (response.success) {
-                    alert(response.message);
+                    Swal.fire({
+                        title: "Success!",
+                        text: response.message,
+                        icon: "success",
+                        confirmButtonText: "OK"
+                    });
                     $('#edit_bankdet_modal').modal('hide');
+                    $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");
+
+
                     // Optionally refresh table or data
                 } else {
-                    alert("Update failed: " + response.message);
+                    Swal.fire({
+                        title: "Error!",
+                        text: "Update failed: " + response.message,
+                        icon: "error",
+                        confirmButtonText: "OK"
+                    });
                 }
             },
             error: function(xhr) {
-                alert("An error occurred during update.");
+                Swal.fire({
+                    title: "Error!",
+                    text: "An error occurred during update",
+                    icon: "error",
+                    confirmButtonText: "OK"
+                });
             }
         });
     });
 
-    $('#edit_farmerdet_modal .btn-success').on('click', function () {
+    $('#edit_farmerdet_modal .btn-success').on('click', function() {
         var form_id = $('#edit_farmerdet_modal').data('form-id');
 
         $.ajax({
@@ -2587,9 +2649,17 @@
                 lon: $('#input_f_longitude').val(),
                 mcode: $('#input_f_mcode').val(),
             },
-            success: function (response) {
-                alert(response.message);
+            success: function(response) {
+                Swal.fire({
+                    title: "Success!",
+                    text: response.message,
+                    icon: "success",
+                    confirmButtonText: "OK"
+                });
                 $('#edit_farmerdet_modal').modal('hide');
+                $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");
                 // Optionally reload table or page
             }
         });
@@ -2610,14 +2680,28 @@
                 contentType: false,
                 success: function(response) {
                     // Show success message or reload table
-                    alert('Pond details updated successfully!');
-                    $('#editponddet_modal_2').modal('hide');
-                    // Optionally reload table or page
-                    location.reload();
+                    Swal.fire({
+                        title: "Success!",
+                        text: "Pond details updated successfully!",
+                        icon: "success",
+                        confirmButtonText: "OK"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            $('#editponddet_modal_2').modal('hide');
+$("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");                        }
+                    });
+                    console.error(xhr.responseText);
                 },
                 error: function(xhr) {
                     // Show error
-                    alert('Error updating pond details.');
+                    Swal.fire({
+                        title: "Error!",
+                        text: "Error updating pond details",
+                        icon: "error",
+                        confirmButtonText: "OK"
+                    });
                     console.error(xhr.responseText);
                 }
             });
@@ -2637,39 +2721,71 @@
             },
             success: function(response) {
                 if (response.success) {
-                    alert("Plantation form updated successfully.");
-                    $("#editplantdet_modal").modal("hide");
-                    location.reload(); // or update table dynamically
+                    Swal.fire({
+                        title: "Success!",
+                        text: "Plantation form updated successfully",
+                        icon: "success",
+                        confirmButtonText: "OK"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            $("#editplantdet_modal").modal("hide");
+$("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");                        }
+                    });
                 } else {
-                    alert("Failed to update.");
+                    Swal.fire({
+                        title: "Error!",
+                        text: "Failed to update",
+                        icon: "error",
+                        confirmButtonText: "OK"
+                    });
                 }
             },
             error: function() {
-                alert("Error during update.");
+                Swal.fire({
+                    title: "Error!",
+                    text: "Error during update",
+                    icon: "error",
+                    confirmButtonText: "OK"
+                });
             }
         });
     });
 
 
 
-    $("#editlandEditForm").submit(function (e) {
+    $("#editlandEditForm").submit(function(e) {
         e.preventDefault();
 
         $.ajax({
             url: "/landform/update",
             type: "POST",
             data: $(this).serialize(),
-            success: function (res) {
-                alert(res.success);
-                $("#editlanddet_modal").modal("hide");
-                location.reload(); // or refresh the table
+            success: function(res) {
+                Swal.fire({
+                    title: "Success!",
+                    text: res.success,
+                    icon: "success",
+                    confirmButtonText: "OK"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        $("#editlanddet_modal").modal("hide");
+$("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");                    }
+                });
             },
-            error: function (xhr) {
-                alert("Update failed. Please try again.");
+            error: function(xhr) {
+                Swal.fire({
+                    title: "Error!",
+                    text: "Update failed. Please try again",
+                    icon: "error",
+                    confirmButtonText: "OK"
+                });
             }
         });
     });
-
     </script>
 
 

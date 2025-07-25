@@ -1694,7 +1694,7 @@
                         $("#f_drinking_water").text(response.data.drinking_water);
                         $("#f_potability").text(response.data.potability);
                         $("#f_domestic_water").text(response.data.domestic_water);
-                        $("#f_toilet_availability").text(response.data.toilet_avail;
+                        $("#f_toilet_availability").text(response.data.toilet_avail);
                         $("#f_toilet_condition").text(response.data.toilet_cond);
                         $("#f_house_owner").text(response.data.house_owner);
                         $("#f_household_education").text(response.data.household_education);
@@ -1878,6 +1878,9 @@
                             icon: "success",
                             confirmButtonText: "OK"
                         });
+                         $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");
                     } else {
                         Swal.fire({
                             title: "Error!",
@@ -1919,6 +1922,9 @@
                             icon: "success",
                             confirmButtonText: "OK"
                         });
+                         $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");
                     } else {
                         Swal.fire({
                             title: "Error!",
@@ -2039,8 +2045,9 @@
                             icon: "success",
                             confirmButtonText: "OK"
                         });
-                        location.reload();
-                    },
+ $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");                    },
                     error: function(xhr) {
                         Swal.fire({
                             title: "Error!",
@@ -2178,8 +2185,9 @@
                     });
                     $('#pfEditModal').modal('hide');
                     $('#pf_edit_form')[0].reset();
-                    location.reload(); // Optional: refresh the table
-                },
+ $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");                },
                 error: function() {
                     Swal.fire({
                         title: "Error!",
@@ -2227,8 +2235,9 @@
                             if (response.status == 200) {
                                 showSuccess("Form approved successfully!");
                                 setTimeout(function() {
-                                    location.reload();
-                                }, 1500);
+ $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");                                }, 1500);
                             } else {
                                 showError(response.message || "Error approving form");
                             }
@@ -2258,8 +2267,9 @@
                             if (response.status == 200) {
                                 showSuccess("Form rejected successfully!");
                                 setTimeout(function() {
-                                    location.reload();
-                                }, 1500);
+ $("#land_table").load(location.href + " #land_table");
+                    $("#pond_table").load(location.href + " #pond_table");
+                    $("#plant_table").load(location.href + " #plant_table");                                }, 1500);
                             } else {
                                 showError(response.message || "Error rejecting form");
                             }
